@@ -37,7 +37,7 @@ C_OBJECTS := $(patsubst $(C_SRC)%.c, $(BUILD)%.o, $(wildcard $(C_SRC)*.c))
 
 
 # Rule to make everything.
-all: $(TARGET) $(LIST)
+all: clean $(TARGET) $(LIST) 
 	cp kernel.img /media/kindo/boot/kernel.img
 
 # Rule to remake everything. Does not include clean.
