@@ -7,7 +7,7 @@ CharCount:
 	mov r0, #0
 	CharCountLoop$:
 		ldrb r2, [r1, r0]
-		cmp r2, #'\0'
+		cmp r2, #0
 		moveq pc, lr
 
 		add r0, #1
@@ -28,7 +28,7 @@ SignedString:
 
 	mov r4, #0
 	cmp r0, #0
-	bgt ContinueSignedString$
+	bge ContinueSignedString$
 
 	mov r3, #'-'
 	teq r1, #0
@@ -50,7 +50,7 @@ SignedString:
  */
 .globl UnsignedString
 UnsignedString:
-	push {r4 - r7, lr}
+	push {r4 - r12, lr}
 
 	mov r4, r0
 	mov r5, r1
@@ -58,20 +58,18 @@ UnsignedString:
 	mov r7, #0
 
 	ConversionLoop$:
-		mov r0, r4
 		mov r1, r6
 		bl DivideU32
-		mov r4, r0
 
 		cmp r1, #10
 		addlo r1, #'0'
-		addhs r1, #('A'-10)
+		addhs r1, #('a'-10)
 		
 		teq r5, #0
 		strneb r1, [r5, r7]
 
 		add r7, #1
-		cmp r4, #0
+		cmp r0, #0
 		bhi ConversionLoop$
 
 	teq r5, #0
@@ -79,7 +77,7 @@ UnsignedString:
 	movne r1, r7
 	blne ReverseString
 	mov r0, r7
-	pop {r4 - r7, pc}
+	pop {r4 - r12, pc}
 
 /* r0: string address
  * r1: length
@@ -94,9 +92,9 @@ ReverseString:
 		movls pc, lr
 
 		ldrb r2, [r0]
-		ldrb r1, [r1]
+		ldrb r3, [r1]
 
-		strb r1, [r0]
+		strb r3, [r0]
 		strb r2, [r1]
 
 		add r0, #1
