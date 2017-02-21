@@ -1,9 +1,10 @@
 .section .init
 .globl _start
 _start:
-	b main
+	b kernel
 
 .section .text
+.globl main
 main:
 	mov sp, #0x8000
 	
