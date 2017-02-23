@@ -28,24 +28,30 @@ main:
 
 	noError$:
 		bl SetGraphicsAddress 
-
+		
 		ldr r0, =format
 		bl CharCount
-		
+
 		mov r1, r0
 		ldr r0, =format
-		mov r2, #0
-		mov r3, #0
-		bl DrawString
+		ldr r2, =dest
+		ldr r3, =-32
+		bl FormatString
 
-		ldr r0, =format
+		
+		ldr r0, =dest
 		mov r1, #0
-		mov r2, #16
+		mov r2, #0
 		bl DrawStringz
 
 		lewp$:
 			b lewp$
+
 		.section .data
 		format:
-		.asciz "Lol"
+		.asciz "This is a number: %d"
 		formatEnd:
+
+		.section .bss
+		dest:
+			.space 100

@@ -123,7 +123,11 @@ ReverseString:
 		add r0, #1
 		sub r1, #1
 		b ReversionLoop$
-
+/* r0: format string
+ * r1: length
+ * r2: destination
+ * r3 and stack: format arguments
+ */
 .globl FormatString
 FormatString:
 	format .req r4

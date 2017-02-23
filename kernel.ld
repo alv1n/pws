@@ -33,6 +33,11 @@ SECTIONS {
 	.rodata : {
 		*(.rodata)
 	}
+	
+	/* NEW NEW Next we put the bss? */
+	.bss : {
+		*(.bss)
+	}
 
 	/*
 	* Finally comes everything else. A fun trick here is to put all other 

@@ -1,34 +1,24 @@
 
 Discarded input sections
 
- .bss           0x0000000000000000        0x0 build/mailbox.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/mailbox.o
- .bss           0x0000000000000000        0x0 build/framebuffer.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/framebuffer.o
- .bss           0x0000000000000000        0x0 build/text.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/text.o
- .bss           0x0000000000000000        0x0 build/systemTimer.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/systemTimer.o
- .bss           0x0000000000000000        0x0 build/drawing.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/drawing.o
- .bss           0x0000000000000000        0x0 build/gpio.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/gpio.o
- .bss           0x0000000000000000        0x0 build/main.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/main.o
- .bss           0x0000000000000000        0x0 build/random.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/random.o
- .bss           0x0000000000000000        0x0 build/maths.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/maths.o
- .bss           0x0000000000000000        0x0 build/tags.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/tags.o
 
@@ -55,7 +45,7 @@ LOAD build/tags.o
  .init          0x0000000000008000        0x4 build/main.o
                 0x0000000000008000                _start
 
-.text           0x0000000000008004      0x6e8
+.text           0x0000000000008004      0x6ec
  *(.text)
  .text          0x0000000000008004       0x60 build/mailbox.o
                 0x0000000000008004                MailboxWrite
@@ -82,16 +72,16 @@ LOAD build/tags.o
  .text          0x000000000000851c       0xa4 build/gpio.o
                 0x000000000000851c                SetGpioFunction
                 0x000000000000856c                SetGpio
- .text          0x00000000000085c0       0x70 build/main.o
+ .text          0x00000000000085c0       0x74 build/main.o
                 0x00000000000085c0                main
- .text          0x0000000000008630       0x18 build/random.o
-                0x0000000000008630                Random
- .text          0x0000000000008648       0x48 build/maths.o
-                0x0000000000008648                DivideU32
- .text          0x0000000000008690       0x5c build/tags.o
-                0x0000000000008690                FindTag
+ .text          0x0000000000008634       0x18 build/random.o
+                0x0000000000008634                Random
+ .text          0x000000000000864c       0x48 build/maths.o
+                0x000000000000864c                DivideU32
+ .text          0x0000000000008694       0x5c build/tags.o
+                0x0000000000008694                FindTag
 
-.data           0x00000000000086f0      0x868
+.data           0x00000000000086f0      0x879
  *(.data)
  .data          0x00000000000086f0        0x0 build/mailbox.o
  .data          0x00000000000086f0       0x28 build/framebuffer.o
@@ -101,13 +91,26 @@ LOAD build/tags.o
  *fill*         0x0000000000008718        0x8 
  .data          0x0000000000008720      0x810 build/drawing.o
  .data          0x0000000000008f30        0x0 build/gpio.o
- .data          0x0000000000008f30        0x4 build/main.o
- .data          0x0000000000008f34        0x0 build/random.o
- .data          0x0000000000008f34        0x0 build/maths.o
- .data          0x0000000000008f34       0x24 build/tags.o
+ .data          0x0000000000008f30       0x15 build/main.o
+ .data          0x0000000000008f45        0x0 build/random.o
+ .data          0x0000000000008f45        0x0 build/maths.o
+ .data          0x0000000000008f45       0x24 build/tags.o
 
 .rodata
  *(.rodata)
+
+.bss            0x0000000000008f69       0x64
+ *(.bss)
+ .bss           0x0000000000008f69        0x0 build/mailbox.o
+ .bss           0x0000000000008f69        0x0 build/framebuffer.o
+ .bss           0x0000000000008f69        0x0 build/text.o
+ .bss           0x0000000000008f69        0x0 build/systemTimer.o
+ .bss           0x0000000000008f69        0x0 build/drawing.o
+ .bss           0x0000000000008f69        0x0 build/gpio.o
+ .bss           0x0000000000008f69       0x64 build/main.o
+ .bss           0x0000000000008fcd        0x0 build/random.o
+ .bss           0x0000000000008fcd        0x0 build/maths.o
+ .bss           0x0000000000008fcd        0x0 build/tags.o
 
 /DISCARD/
  *(*)
