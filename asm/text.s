@@ -1,3 +1,26 @@
+/* DrawStringz: Draws a null terminated string. Wrapper for DrawString.
+ * r0: null-terminated string.
+ * r1: x position
+ * r2: y position
+ */
+.globl DrawStringz
+DrawStringz:
+	push {r4 - r6, lr}
+
+	mov r4, r0
+	mov r5, r1
+	mov r6, r2
+
+	bl CharCount
+
+	mov r1, r0
+	mov r0, r4
+	mov r2, r5
+	mov r3, r6
+	bl DrawString
+
+	pop {r4 - r6, pc}
+
 /* r0: string address
  * returns number of characters in a null-terminated string
  */

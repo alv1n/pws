@@ -60,7 +60,7 @@ LOAD build/tags.o
  .init          0x0000000000008000        0x4 build/main.o
                 0x0000000000008000                _start
 
-.text           0x0000000000008004      0x714
+.text           0x0000000000008004      0x6e4
  *(.text)
  .text          0x0000000000008004       0x18 build/kernel.o
                 0x0000000000008004                kernel
@@ -69,49 +69,50 @@ LOAD build/tags.o
                 0x0000000000008048                MailboxRead
  .text          0x000000000000807c       0x60 build/framebuffer.o
                 0x000000000000807c                InitialiseFrameBuffer
- .text          0x00000000000080dc      0x218 build/text.o
-                0x00000000000080dc                CharCount
-                0x00000000000080f8                SignedString
-                0x0000000000008138                UnsignedString
-                0x000000000000818c                ReverseString
-                0x00000000000081b8                FormatString
- .text          0x00000000000082f4       0x24 build/systemTimer.o
-                0x00000000000082f4                timerWait
- .text          0x0000000000008318      0x1f0 build/drawing.o
-                0x0000000000008318                SetForeColour
-                0x000000000000832c                SetGraphicsAddress
-                0x0000000000008338                DrawPixel
-                0x0000000000008374                DrawLine
-                0x00000000000083f0                DrawByte
-                0x0000000000008438                DrawCharacter
-                0x000000000000848c                DrawString
- .text          0x0000000000008508       0xa4 build/gpio.o
-                0x0000000000008508                SetGpioFunction
-                0x0000000000008558                SetGpio
- .text          0x00000000000085ac       0xb0 build/main.o
-                0x00000000000085ac                main
- .text          0x000000000000865c       0x18 build/random.o
-                0x000000000000865c                Random
- .text          0x0000000000008674       0x48 build/maths.o
-                0x0000000000008674                DivideU32
- .text          0x00000000000086bc       0x5c build/tags.o
-                0x00000000000086bc                FindTag
+ .text          0x00000000000080dc      0x244 build/text.o
+                0x00000000000080dc                DrawStringz
+                0x0000000000008108                CharCount
+                0x0000000000008124                SignedString
+                0x0000000000008164                UnsignedString
+                0x00000000000081b8                ReverseString
+                0x00000000000081e4                FormatString
+ .text          0x0000000000008320       0x24 build/systemTimer.o
+                0x0000000000008320                timerWait
+ .text          0x0000000000008344      0x1f0 build/drawing.o
+                0x0000000000008344                SetForeColour
+                0x0000000000008358                SetGraphicsAddress
+                0x0000000000008364                DrawPixel
+                0x00000000000083a0                DrawLine
+                0x000000000000841c                DrawByte
+                0x0000000000008464                DrawCharacter
+                0x00000000000084b8                DrawString
+ .text          0x0000000000008534       0xa4 build/gpio.o
+                0x0000000000008534                SetGpioFunction
+                0x0000000000008584                SetGpio
+ .text          0x00000000000085d8       0x54 build/main.o
+                0x00000000000085d8                main
+ .text          0x000000000000862c       0x18 build/random.o
+                0x000000000000862c                Random
+ .text          0x0000000000008644       0x48 build/maths.o
+                0x0000000000008644                DivideU32
+ .text          0x000000000000868c       0x5c build/tags.o
+                0x000000000000868c                FindTag
 
-.data           0x0000000000008720      0x879
+.data           0x00000000000086f0      0x868
  *(.data)
- .data          0x0000000000008720        0x0 build/kernel.o
- .data          0x0000000000008720        0x0 build/mailbox.o
- .data          0x0000000000008720       0x28 build/framebuffer.o
-                0x0000000000008720                FrameBufferInfo
- .data          0x0000000000008748        0x0 build/text.o
- .data          0x0000000000008748        0x0 build/systemTimer.o
- *fill*         0x0000000000008748        0x8 
- .data          0x0000000000008750      0x810 build/drawing.o
- .data          0x0000000000008f60        0x0 build/gpio.o
- .data          0x0000000000008f60       0x15 build/main.o
- .data          0x0000000000008f75        0x0 build/random.o
- .data          0x0000000000008f75        0x0 build/maths.o
- .data          0x0000000000008f75       0x24 build/tags.o
+ .data          0x00000000000086f0        0x0 build/kernel.o
+ .data          0x00000000000086f0        0x0 build/mailbox.o
+ .data          0x00000000000086f0       0x28 build/framebuffer.o
+                0x00000000000086f0                FrameBufferInfo
+ .data          0x0000000000008718        0x0 build/text.o
+ .data          0x0000000000008718        0x0 build/systemTimer.o
+ *fill*         0x0000000000008718        0x8 
+ .data          0x0000000000008720      0x810 build/drawing.o
+ .data          0x0000000000008f30        0x0 build/gpio.o
+ .data          0x0000000000008f30        0x4 build/main.o
+ .data          0x0000000000008f34        0x0 build/random.o
+ .data          0x0000000000008f34        0x0 build/maths.o
+ .data          0x0000000000008f34       0x24 build/tags.o
 
 .rodata
  *(.rodata)

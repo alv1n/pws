@@ -1,3 +1,0 @@
-void kernel(void) {
-	main();
-}
