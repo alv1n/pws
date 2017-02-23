@@ -38,6 +38,11 @@ main:
 		mov r3, #0
 		bl DrawString
 
+		ldr r0, =format
+		mov r1, #0
+		mov r2, #16
+		bl DrawStringz
+
 		lewp$:
 			b lewp$
 		.section .data
