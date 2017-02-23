@@ -30,7 +30,10 @@ main:
 		bl SetGraphicsAddress 
 
 		ldr r0, =format
-		mov r1, #(formatEnd - format)
+		bl CharCount
+		
+		mov r1, r0
+		ldr r0, =format
 		mov r2, #0
 		mov r3, #0
 		bl DrawString
