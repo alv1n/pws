@@ -37,7 +37,7 @@ InitialiseFrameBuffer:
 	str r1, [r4, #12]
 	str r2, [r4, #20]
 	
-	// request GPU by sanding fbinfo address
+	// request GPU by sending fbinfo address
 	mov r0, r4
 	add r0, #0x40000000
 	mov r1, #1
@@ -46,6 +46,8 @@ InitialiseFrameBuffer:
 	// Check GPU's reply
 	mov r0, #1
 	bl MailboxRead
+
+	// If the GPU's reply was 0, we were succesful
 	teq r0, #0
 	movne r0, #0
 	popne {r4, pc}

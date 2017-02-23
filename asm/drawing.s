@@ -176,6 +176,8 @@ DrawByte:
 .align 4
 font:
 	.incbin "font0.bin"
+
+.section .text
 /* DrawCharacter: Draws a character. Wow.
  * r0: Character to be written
  * r1: x position

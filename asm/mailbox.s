@@ -40,6 +40,7 @@ MailboxRead:
 	
 	ldr r1, =MAILBOX_BASE
 
+	// If bit 30 is 0, we can read the message
 	rightmail$:
 		wait2$:
 			ldr r2, [r1, #STAT_OFF]
