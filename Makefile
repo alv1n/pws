@@ -34,6 +34,9 @@ ASM_OBJECTS := $(patsubst $(ASM_SRC)%.s, $(BUILD)%.o, $(wildcard $(ASM_SRC)*.s))
 
 C_OBJECTS := $(patsubst $(C_SRC)%.c, $(BUILD)%.o, $(wildcard $(C_SRC)*.c))
 
+# NEW usb driver library
+LIBRARIES := csud
+
 
 
 # Rule to make everything.
@@ -53,7 +56,7 @@ $(TARGET) : $(BUILD)output.elf
 
 # Rule to make the elf file.
 $(BUILD)output.elf : $(ASM_OBJECTS) $(C_OBJECTS) $(LINKER)
-	$(ARMGNU)-ld --no-undefined $(C_OBJECTS) $(ASM_OBJECTS) -Map $(MAP) -o $(BUILD)output.elf -T $(LINKER)
+	$(ARMGNU)-ld --no-undefined $(C_OBJECTS) $(ASM_OBJECTS) -L. $(patsubst %, -l %, $(LIBRARIES)) -Map $(MAP) -o $(BUILD)output.elf -T $(LINKER)
 
 # Rule to make the object files.
 $(BUILD)%.o: $(ASM_SRC)%.s $(BUILD)

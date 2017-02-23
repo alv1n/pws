@@ -29,13 +29,17 @@ main:
 	noError$:
 		bl SetGraphicsAddress 
 		
+		// Initialise keyboards and save return code
+		bl UsbInitialise
+		mov r4, r0
+		
 		ldr r0, =format
 		bl CharCount
 
 		mov r1, r0
 		ldr r0, =format
 		ldr r2, =dest
-		ldr r3, =-32
+		mov r3, r4
 		bl FormatString
 
 		
@@ -49,7 +53,7 @@ main:
 
 		.section .data
 		format:
-		.asciz "This is a number: %d"
+		.asciz "UsbInitialise returned: %d"
 		formatEnd:
 
 		.section .bss
