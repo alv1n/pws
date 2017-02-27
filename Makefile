@@ -1,4 +1,4 @@
-###############################################################################
+##############################################################################
 #	makefile
 #	 by Alex Chadwick
 #
@@ -35,13 +35,14 @@ ASM_OBJECTS := $(patsubst $(ASM_SRC)%.s, $(BUILD)%.o, $(wildcard $(ASM_SRC)*.s))
 C_OBJECTS := $(patsubst $(C_SRC)%.c, $(BUILD)%.o, $(wildcard $(C_SRC)*.c))
 
 # NEW usb driver library
-LIBRARIES := csud
+LIBRARIES := uspi
 
-
+# Include headers
+HEADERS := /include
 
 # Rule to make everything.
 all: clean $(TARGET) $(LIST) 
-	cp kernel.img /media/kindo/boot/kernel.img
+#	cp kernel.img /media/kindo/boot/kernel.img
 
 # Rule to remake everything. Does not include clean.
 rebuild: all
@@ -55,7 +56,7 @@ $(TARGET) : $(BUILD)output.elf
 	$(ARMGNU)-objcopy $(BUILD)output.elf -O binary $(TARGET) 
 
 # Rule to make the elf file.
-$(BUILD)output.elf : $(ASM_OBJECTS) $(C_OBJECTS) $(LINKER)
+$(BUILD)output.elf : $(ASM_OBJECTS) $(C_OBJECTS) $(LINKER) 
 	$(ARMGNU)-ld --no-undefined $(C_OBJECTS) $(ASM_OBJECTS) -L. $(patsubst %, -l %, $(LIBRARIES)) -Map $(MAP) -o $(BUILD)output.elf -T $(LINKER)
 
 # Rule to make the object files.
@@ -63,7 +64,7 @@ $(BUILD)%.o: $(ASM_SRC)%.s $(BUILD)
 	$(ARMGNU)-as -I $(ASM_SRC) $< -o $@
 
 $(BUILD)%.o: $(C_SRC)%.c $(BUILD)
-	$(ARMGNU)-gcc -c $< -o $@
+	$(ARMGNU)-gcc -I $(HEADERS) -c $< -o $@
 
 $(BUILD):
 	mkdir $@
