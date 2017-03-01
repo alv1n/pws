@@ -15,7 +15,6 @@ struct FrameBufferDescription{
 //Random.s
 extern uint32_t Random(int seed); 
 
-
 //Drawing.s
 extern void SetGraphicsAddress(struct FrameBufferDescription *buffer);
 

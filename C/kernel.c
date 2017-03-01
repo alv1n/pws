@@ -18,7 +18,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 
     USPiKeyboardAvailable();
     
-    USPiKeyboardRegisterKeyStatusHandlerRaw(modKeys);
+    USPiKeyboardRegisterKeyStatusHandlerRaw(KeyPressedHandler);
     
     struct FrameBufferDescription* frameRet = InitialiseFrameBuffer(1024, 768, 16);
     //If Initialized correctly enable LED 
@@ -31,19 +31,21 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     SetGraphicsAddress(frameRet);
     
     DrawStringz("Screen turned on succesfully!",0,0);
-    
-    int loc = 8;
+    int x = 0;
+    int y = 16;
     while(1)
     {
-        for(int i=0; i < 6; i++)
+        char c = KeyboardGetChar();
+        if(c != 0)
         {
-            char str[3];
-            SignedString(keys[i],str,10);
-            DrawStringz(str,loc,0);
-            loc += 8*3;
-            timerWait(1000000);
+             DrawCharacter(c,x,y);
+             x += 8;
+             if(x>=1024)
+             {
+                x = 0;
+                y += 16;
+             }
         }
-
     }
     
     
