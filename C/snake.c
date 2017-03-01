@@ -29,13 +29,31 @@ void snake(void)
     int collision = 0;
     while(!collision)
     {
+        //Movement
+        key_pressed = KeyboardGetChar();
+        last_key = key_pressed;
+        if(key_pressed == 'd')
+        {
+            for(int i = 0;pos.pos_x[i] != 0;i++)
+            {
+                pos.pos_x[i] += 1;
+            }
+
+        }
+        if(key_pressed == 'w')
+        {
+            for(int i=0;pos.pos_y[i] != 0;i++)
+            {
+                pos.pos_y[i] -= 1;
+            }
+        }
+
         //Test if food is eaten
         if(pos.pos_x[0] == pos.nom_x && pos.pos_y[0] == pos.nom_y)
         {
             pos.nom_x = Random(pos.nom_y);
             pos.nom_y = Random(pos.nom_x);
-}
-         //Get Key_pressed
+        }
 
          //Drawing stuff
          int i = 0;
@@ -70,6 +88,8 @@ void snake(void)
                 return;
             }
         }
+
+        timerWait(1000000);
     }
 
 }
