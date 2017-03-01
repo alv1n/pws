@@ -42,40 +42,13 @@ static const uint8_t KeysShift[104] =
      '8', '9', '0', '.', '|', 0x0, 0x0, '='
 };
 
-int checkDifference()
-{
-    uint8_t has_changed = 0;
-    for(int i=0;i<6;i++)
-    {
-        for(int j=0;i<6;i++)
-        {
-            if(keys[i] == keys_old[j])
-            {
-                has_changed = has_changed && (1 << i); //Bitwise check
-                //Check all possibilies to match
-            }
-        }
-        if(has_changed == 0b111111)
-        {
-            return 0;
-        }
-        else
-        {
-            for(i = 0;i<6;i++)
-            {
-                keys_old[i] = keys[i];
-            }
-        }
-    }
-}
-
-
 //Saves keys to variables (To be passed as function ptr)
 void KeyPressedHandler(uint8_t ucModifiers, const unsigned char RawKeys[6])
 {
     modifiers = ucModifiers;
     for(int i = 0;i <6;i++)
     {
+        keys_old[i] = keys[i];
         keys[i] = RawKeys[i];
     }
     return;
@@ -86,7 +59,7 @@ int KeyWasDown(uint16_t scanCode)
 {
     for(int i=0;i<6;i++)
     {
-        if(scanCode==keys[i])
+        if(scanCode==keys_old[i])
         {
             return 1;
         }
@@ -98,27 +71,31 @@ unsigned char KeyboardGetChar()
 {
     for(int i=0;i<6;i++)
     {
-        if(keys[i] ==  0)
+        if(KeyWasDown(keys[i]) != 1)
         {
-            return 0;
-        }
-        if(keys[i] <= 103)
-        {
-             uint8_t *modif;
-             if( (modifiers | 0b00100010) != 0) //Check if either shift is pressed
-             {
-                modif = KeysShift;
-             }
-             else
-             {
-                modif = KeysNormal;
-             }
+            if(keys[i] ==  0)
+            {
+                return 0;
+            }
+            if(keys[i] <= 103)
+            {
+                 uint8_t *modif;
+                 if( (modifiers | 0b00100010) == 0) //Check if either shift is pressed
+                 {
+                    modif = KeysShift;
+                 }
+                 else
+                 {
+                    modif = KeysNormal;
+                 }
 
-             if(modif[ keys[i] ] != 0)
-             {
-                return modif[ keys[i] ];
-             }
+                 if(modif[ keys[i] ] != 0)
+                 {
+                    return modif[ keys[i] ];
+                 }
+            }
         }
+        return 0;
         
     }
 }
