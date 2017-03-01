@@ -1,6 +1,6 @@
 ##############################################################################
 #	makefile
-#	 by Alex Chadwick
+#	 by Alex Chadwick, Ket Bottelier en Alvin Reumer
 #
 #	A makefile script for generation of raspberry pi kernel images.
 ###############################################################################
@@ -28,7 +28,7 @@ MAP = kernel.map
 # The name of the linker script to use.
 LINKER = kernel.ld
 
-#NEW Hardlink ABI
+#Hardlink ABI (Not necessary probably)
 CFLAGS += mfloat-abi=hard
 
 # The names of all object files that must be generated. Deduced from the 

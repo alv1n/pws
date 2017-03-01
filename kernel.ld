@@ -1,6 +1,7 @@
 /******************************************************************************
 *	kernel.ld
-*	 by Alex Chadwick
+*	by Alex Chadwick
+*   Modified by Ket Bottelier en Alvin Reumer
 *
 *	A linker script for generation of raspberry pi kernel images, with C
 *	code.
@@ -32,12 +33,17 @@ SECTIONS {
 		*.c.o(.text)
 		*(.text)
 	}
-    
+    /*
+    * Read-Only data.
+    */
     _etext = .;
     .rodata : {
             *(.rodata*)
         }
 
+    COMMON : {
+        *(COMMON*)
+        }
 	/*
 	* Finally comes everything else. A fun trick here is to put all other 
 	* sections into this section, which will be discarded by default.
