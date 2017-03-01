@@ -10,15 +10,6 @@
 unsigned char modifiers;
 unsigned char keys[6];
 
-void modKeys(unsigned char ucModifiers, const unsigned char RawKeys[6])
-{
-    modifiers = ucModifiers;
-    for(int i = 0;i <6;i++)
-    {
-        keys[i] = RawKeys[i];
-    }
-    return;
-}
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {

@@ -1,3 +1,4 @@
+#include "asm.h"
 
 struct position
 {
