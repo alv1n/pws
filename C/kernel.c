@@ -5,6 +5,8 @@
 #include "stdint.h"
 #include "asm.h"
 #include "keyboard.h"
+#include "programs.h"
+
 
 //Modifiers and last 6 keys pressed
 unsigned char modifiers;
