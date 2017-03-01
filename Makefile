@@ -28,8 +28,8 @@ MAP = kernel.map
 # The name of the linker script to use.
 LINKER = kernel.ld
 
-#Hardlink ABI (Not necessary probably)
-CFLAGS += mfloat-abi=hard
+#CFLAGS
+CFLAGS += -W
 
 # The names of all object files that must be generated. Deduced from the 
 # assembly code files in source.
