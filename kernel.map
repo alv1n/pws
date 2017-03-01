@@ -1,12 +1,91 @@
+Archive member included to satisfy reference by file (symbol)
+
+libuspi.a(uspilibrary.o)      build/kernel.o (USPiInitialize)
+libuspi.a(dwhcidevice.o)      libuspi.a(uspilibrary.o) (DWHCIDevice)
+libuspi.a(dwhciregister.o)    libuspi.a(dwhcidevice.o) (DWHCIRegister)
+libuspi.a(dwhcixferstagedata.o)
+                              libuspi.a(dwhcidevice.o) (_DWHCITransferStageData)
+libuspi.a(usbdevice.o)        libuspi.a(dwhcixferstagedata.o) (USBDeviceGetAddress)
+libuspi.a(usbendpoint.o)      libuspi.a(usbdevice.o) (USBEndpoint)
+libuspi.a(usbrequest.o)       libuspi.a(dwhcidevice.o) (USBRequest)
+libuspi.a(devicenameservice.o)
+                              libuspi.a(uspilibrary.o) (DeviceNameService)
+libuspi.a(macaddress.o)       libuspi.a(uspilibrary.o) (MACAddressCopyTo)
+libuspi.a(smsc951x.o)         libuspi.a(uspilibrary.o) (SMSC951xDeviceGetMACAddress)
+libuspi.a(string.o)           libuspi.a(uspilibrary.o) (String)
+libuspi.a(util.o)             libuspi.a(macaddress.o) (uspi_memset)
+libuspi.a(usbmassdevice.o)    libuspi.a(uspilibrary.o) (USBBulkOnlyMassStorageDeviceSeek)
+libuspi.a(dwhciframeschednper.o)
+                              libuspi.a(dwhcixferstagedata.o) (DWHCIFrameSchedulerNonPeriodic)
+libuspi.a(dwhciframeschedper.o)
+                              libuspi.a(dwhcixferstagedata.o) (DWHCIFrameSchedulerPeriodic)
+libuspi.a(usbkeyboard.o)      libuspi.a(uspilibrary.o) (USBKeyboardDeviceRegisterKeyPressedHandler)
+libuspi.a(dwhcirootport.o)    libuspi.a(dwhcidevice.o) (DWHCIRootPort)
+libuspi.a(usbmouse.o)         libuspi.a(uspilibrary.o) (USBMouseDeviceRegisterStatusHandler)
+libuspi.a(dwhciframeschednsplit.o)
+                              libuspi.a(dwhcixferstagedata.o) (DWHCIFrameSchedulerNoSplit)
+libuspi.a(usbgamepad.o)       libuspi.a(uspilibrary.o) (USBGamePadDeviceRegisterStatusHandler)
+libuspi.a(synchronize.o)      libuspi.a(dwhcidevice.o) (uspi_EnterCritical)
+libuspi.a(usbstring.o)        libuspi.a(usbdevice.o) (USBString)
+libuspi.a(usbmidi.o)          libuspi.a(uspilibrary.o) (USBMIDIDeviceRegisterPacketHandler)
+libuspi.a(usbconfigparser.o)  libuspi.a(usbdevice.o) (USBConfigurationParser)
+libuspi.a(usbdevicefactory.o)
+                              libuspi.a(dwhcirootport.o) (USBDeviceFactoryGetDevice)
+libuspi.a(usbstandardhub.o)   libuspi.a(usbdevicefactory.o) (USBStandardHub)
+libuspi.a(keymap.o)           libuspi.a(usbkeyboard.o) (KeyMap)
+libuspienv.a(alloc.o)         libuspi.a(uspilibrary.o) (malloc)
+libuspienv.a(assert.o)        libuspienv.a(alloc.o) (assertion_failed)
+libuspienv.a(debug.o)         libuspienv.a(assert.o) (debug_stacktrace)
+libuspienv.a(libstub.o)       libuspi.a(dwhcixferstagedata.o) (__aeabi_uidiv)
+libuspienv.a(logger.o)        libuspienv.a(assert.o) (LoggerGet)
+libuspienv.a(screen.o)        build/kernel.o (ScreenDeviceWrite)
+libuspienv.a(synchronize.o)   libuspienv.a(alloc.o) (EnterCritical)
+libuspienv.a(timer.o)         libuspienv.a(logger.o) (TimerGetTimeString)
+libuspienv.a(uspibind.o)      libuspi.a(dwhcidevice.o) (MsDelay)
+libuspienv.a(uspienv.o)       build/kernel.o (USPiEnvInitialize)
+libuspienv.a(util.o)          libuspienv.a(screen.o) (memset)
+libuspienv.a(util_fast.o)     libuspienv.a(screen.o) (memcpyblk)
+libuspienv.a(memory.o)        libuspienv.a(uspienv.o) (MemorySystem)
+libuspienv.a(pagetable.o)     libuspienv.a(memory.o) (PageTable)
+libuspienv.a(exceptionhandler.o)
+                              libuspienv.a(uspienv.o) (ExceptionHandler2)
+libuspienv.a(bcmframebuffer.o)
+                              libuspienv.a(screen.o) (BcmFrameBuffer)
+libuspienv.a(bcmpropertytags.o)
+                              libuspienv.a(uspibind.o) (BcmPropertyTags)
+libuspienv.a(chargenerator.o)
+                              libuspienv.a(screen.o) (CharGenerator)
+libuspienv.a(delayloop.o)     libuspienv.a(timer.o) (DelayLoop)
+libuspienv.a(exceptionstub.o)
+                              libuspienv.a(exceptionhandler.o) (UndefinedInstructionStub)
+libuspienv.a(interrupt.o)     libuspienv.a(uspienv.o) (InterruptSystem)
+libuspienv.a(libhelper.o)     libuspienv.a(libstub.o) (Divide)
+libuspienv.a(memio.o)         libuspienv.a(timer.o) (read32)
+libuspienv.a(bcmmailbox.o)    libuspienv.a(bcmframebuffer.o) (BcmMailBox)
+
+Allocating common symbols
+Common symbol       size              file
+
+position            0x328             build/snake.o
+keys                0x6               build/kernel.o
+modifiers           0x1               build/kernel.o
 
 Discarded input sections
 
+ .comment       0x0000000000000000       0x12 build/keyboard.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/keyboard.o
+ .comment       0x0000000000000000       0x12 build/snake.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/snake.o
+ COMMON         0x0000000000000000      0x328 build/snake.o
  .comment       0x0000000000000000       0x12 build/kernel.o
  .ARM.attributes
-                0x0000000000000000       0x30 build/kernel.o
+                0x0000000000000000       0x34 build/kernel.o
+ COMMON         0x0000000000000000        0x7 build/kernel.o
  .comment       0x0000000000000000       0x12 build/startup.o
  .ARM.attributes
-                0x0000000000000000       0x30 build/startup.o
+                0x0000000000000000       0x34 build/startup.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/mailbox.o
  .ARM.attributes
@@ -27,6 +106,155 @@ Discarded input sections
                 0x0000000000000000       0x14 build/maths.o
  .ARM.attributes
                 0x0000000000000000       0x14 build/tags.o
+ .comment       0x0000000000000000       0x12 libuspi.a(uspilibrary.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(uspilibrary.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhcidevice.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhcidevice.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhciregister.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhciregister.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhcixferstagedata.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhcixferstagedata.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbdevice.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbdevice.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbendpoint.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbendpoint.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbrequest.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbrequest.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(devicenameservice.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(devicenameservice.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(macaddress.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(macaddress.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(smsc951x.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(smsc951x.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(string.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(string.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(util.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(util.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbmassdevice.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbmassdevice.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhciframeschednper.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhciframeschednper.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhciframeschedper.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhciframeschedper.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbkeyboard.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbkeyboard.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhcirootport.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhcirootport.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbmouse.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbmouse.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(dwhciframeschednsplit.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(dwhciframeschednsplit.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbgamepad.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbgamepad.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(synchronize.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(synchronize.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbstring.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbstring.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbmidi.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbmidi.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbconfigparser.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbconfigparser.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbdevicefactory.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbdevicefactory.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(usbstandardhub.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(usbstandardhub.o)
+ .comment       0x0000000000000000       0x12 libuspi.a(keymap.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspi.a(keymap.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(alloc.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(alloc.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(assert.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(assert.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(debug.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(debug.o)
+ .ARM.attributes
+                0x0000000000000000       0x1a libuspienv.a(libstub.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(logger.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(logger.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(screen.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(screen.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(synchronize.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(synchronize.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(timer.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(timer.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(uspibind.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(uspibind.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(uspienv.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(uspienv.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(util.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(util.o)
+ .ARM.attributes
+                0x0000000000000000       0x1a libuspienv.a(util_fast.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(memory.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(memory.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(pagetable.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(pagetable.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(exceptionhandler.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(exceptionhandler.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(bcmframebuffer.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(bcmframebuffer.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(bcmpropertytags.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(bcmpropertytags.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(chargenerator.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(chargenerator.o)
+ .ARM.attributes
+                0x0000000000000000       0x1a libuspienv.a(delayloop.o)
+ .ARM.attributes
+                0x0000000000000000       0x1a libuspienv.a(exceptionstub.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(interrupt.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(interrupt.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(libhelper.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(libhelper.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(memio.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(memio.o)
+ .comment       0x0000000000000000       0x12 libuspienv.a(bcmmailbox.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 libuspienv.a(bcmmailbox.o)
 
 Memory Configuration
 
@@ -35,6 +263,8 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
+LOAD build/keyboard.o
+LOAD build/snake.o
 LOAD build/kernel.o
 LOAD build/startup.o
 LOAD build/mailbox.o
@@ -47,86 +277,864 @@ LOAD build/main.o
 LOAD build/random.o
 LOAD build/maths.o
 LOAD build/tags.o
-LOAD ./libuspi.a
+LOAD libuspi.a
+LOAD libuspienv.a
 
 .init           0x0000000000008000        0x8
  *(.init)
  .init          0x0000000000008000        0x8 build/main.o
                 0x0000000000008000                _start
 
-.data           0x0000000000008010      0x894
+.data           0x0000000000008010      0xd1c
  *(.data)
- .data          0x0000000000008010       0x2d build/kernel.o
-                0x0000000000008010                FramebufferInfo
-                0x0000000000008038                str
- .data          0x000000000000803d        0x0 build/startup.o
- .data          0x000000000000803d        0x0 build/mailbox.o
- *fill*         0x000000000000803d        0x3 
- .data          0x0000000000008040       0x28 build/framebuffer.o
-                0x0000000000008040                FrameBufferInfo
- .data          0x0000000000008068        0x0 build/text.o
- .data          0x0000000000008068        0x0 build/systemTimer.o
- *fill*         0x0000000000008068        0x8 
- .data          0x0000000000008070      0x810 build/drawing.o
- .data          0x0000000000008880        0x0 build/gpio.o
- .data          0x0000000000008880        0x0 build/main.o
- .data          0x0000000000008880        0x0 build/random.o
- .data          0x0000000000008880        0x0 build/maths.o
- .data          0x0000000000008880       0x24 build/tags.o
+ .data          0x0000000000008010        0x0 build/keyboard.o
+ .data          0x0000000000008010        0x0 build/snake.o
+ .data          0x0000000000008010        0x0 build/kernel.o
+ .data          0x0000000000008010        0x0 build/startup.o
+ .data          0x0000000000008010        0x0 build/mailbox.o
+ .data          0x0000000000008010       0x28 build/framebuffer.o
+                0x0000000000008010                FrameBufferInfo
+ .data          0x0000000000008038        0x0 build/text.o
+ .data          0x0000000000008038        0x0 build/systemTimer.o
+ *fill*         0x0000000000008038        0x8 
+ .data          0x0000000000008040      0x810 build/drawing.o
+ .data          0x0000000000008850        0x0 build/gpio.o
+ .data          0x0000000000008850        0x0 build/main.o
+ .data          0x0000000000008850        0x0 build/random.o
+ .data          0x0000000000008850        0x0 build/maths.o
+ .data          0x0000000000008850       0x24 build/tags.o
+ .data          0x0000000000008874        0x0 libuspi.a(uspilibrary.o)
+ .data          0x0000000000008874        0x0 libuspi.a(dwhcidevice.o)
+ .data          0x0000000000008874        0x0 libuspi.a(dwhciregister.o)
+ .data          0x0000000000008874        0x0 libuspi.a(dwhcixferstagedata.o)
+ .data          0x0000000000008874        0x1 libuspi.a(usbdevice.o)
+ .data          0x0000000000008875        0x0 libuspi.a(usbendpoint.o)
+ .data          0x0000000000008875        0x0 libuspi.a(usbrequest.o)
+ .data          0x0000000000008875        0x0 libuspi.a(devicenameservice.o)
+ .data          0x0000000000008875        0x0 libuspi.a(macaddress.o)
+ .data          0x0000000000008875        0x0 libuspi.a(smsc951x.o)
+ .data          0x0000000000008875        0x0 libuspi.a(string.o)
+ .data          0x0000000000008875        0x0 libuspi.a(util.o)
+ *fill*         0x0000000000008875        0x3 
+ .data          0x0000000000008878        0x4 libuspi.a(usbmassdevice.o)
+ .data          0x000000000000887c        0x0 libuspi.a(dwhciframeschednper.o)
+ .data          0x000000000000887c        0x0 libuspi.a(dwhciframeschedper.o)
+ .data          0x000000000000887c        0x4 libuspi.a(usbkeyboard.o)
+ .data          0x0000000000008880        0x0 libuspi.a(dwhcirootport.o)
+ .data          0x0000000000008880        0x4 libuspi.a(usbmouse.o)
+ .data          0x0000000000008884        0x0 libuspi.a(dwhciframeschednsplit.o)
+ .data          0x0000000000008884       0x34 libuspi.a(usbgamepad.o)
+ .data          0x00000000000088b8        0x0 libuspi.a(synchronize.o)
+ .data          0x00000000000088b8        0x0 libuspi.a(usbstring.o)
+ .data          0x00000000000088b8        0x4 libuspi.a(usbmidi.o)
+ .data          0x00000000000088bc        0x0 libuspi.a(usbconfigparser.o)
+ .data          0x00000000000088bc        0x0 libuspi.a(usbdevicefactory.o)
+ .data          0x00000000000088bc        0x0 libuspi.a(usbstandardhub.o)
+ .data          0x00000000000088bc        0x0 libuspi.a(keymap.o)
+ .data          0x00000000000088bc       0x38 libuspienv.a(alloc.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(assert.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(debug.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(libstub.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(logger.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(screen.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(synchronize.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(timer.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(uspibind.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(uspienv.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(util.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(util_fast.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(memory.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(pagetable.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(exceptionhandler.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(bcmframebuffer.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(bcmpropertytags.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(chargenerator.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(delayloop.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(exceptionstub.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(interrupt.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(libhelper.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(memio.o)
+ .data          0x00000000000088f4        0x0 libuspienv.a(bcmmailbox.o)
  *.c.o(*)
  *(.bss)
- .bss           0x00000000000088a4        0x0 build/kernel.o
- .bss           0x00000000000088a4        0x0 build/startup.o
- .bss           0x00000000000088a4        0x0 build/mailbox.o
- .bss           0x00000000000088a4        0x0 build/framebuffer.o
- .bss           0x00000000000088a4        0x0 build/text.o
- .bss           0x00000000000088a4        0x0 build/systemTimer.o
- .bss           0x00000000000088a4        0x0 build/drawing.o
- .bss           0x00000000000088a4        0x0 build/gpio.o
- .bss           0x00000000000088a4        0x0 build/main.o
- .bss           0x00000000000088a4        0x0 build/random.o
- .bss           0x00000000000088a4        0x0 build/maths.o
- .bss           0x00000000000088a4        0x0 build/tags.o
+ .bss           0x00000000000088f4        0x0 build/keyboard.o
+ .bss           0x00000000000088f4        0x0 build/snake.o
+ .bss           0x00000000000088f4        0x0 build/kernel.o
+ .bss           0x00000000000088f4        0x0 build/startup.o
+ .bss           0x00000000000088f4        0x0 build/mailbox.o
+ .bss           0x00000000000088f4        0x0 build/framebuffer.o
+ .bss           0x00000000000088f4        0x0 build/text.o
+ .bss           0x00000000000088f4        0x0 build/systemTimer.o
+ .bss           0x00000000000088f4        0x0 build/drawing.o
+ .bss           0x00000000000088f4        0x0 build/gpio.o
+ .bss           0x00000000000088f4        0x0 build/main.o
+ .bss           0x00000000000088f4        0x0 build/random.o
+ .bss           0x00000000000088f4        0x0 build/maths.o
+ .bss           0x00000000000088f4        0x0 build/tags.o
+ .bss           0x00000000000088f4        0x4 libuspi.a(uspilibrary.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(dwhcidevice.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(dwhciregister.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(dwhcixferstagedata.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(usbdevice.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(usbendpoint.o)
+ .bss           0x00000000000088f8        0x0 libuspi.a(usbrequest.o)
+ .bss           0x00000000000088f8        0x4 libuspi.a(devicenameservice.o)
+ .bss           0x00000000000088fc        0x0 libuspi.a(macaddress.o)
+ .bss           0x00000000000088fc        0x4 libuspi.a(smsc951x.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(string.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(util.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(usbmassdevice.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(dwhciframeschednper.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(dwhciframeschedper.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(usbkeyboard.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(dwhcirootport.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(usbmouse.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(dwhciframeschednsplit.o)
+ .bss           0x0000000000008900        0x0 libuspi.a(usbgamepad.o)
+ .bss           0x0000000000008900        0x8 libuspi.a(synchronize.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(usbstring.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(usbmidi.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(usbconfigparser.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(usbdevicefactory.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(usbstandardhub.o)
+ .bss           0x0000000000008908        0x0 libuspi.a(keymap.o)
+ .bss           0x0000000000008908       0x14 libuspienv.a(alloc.o)
+ .bss           0x000000000000891c        0x0 libuspienv.a(assert.o)
+ .bss           0x000000000000891c        0x0 libuspienv.a(debug.o)
+ .bss           0x000000000000891c        0x0 libuspienv.a(libstub.o)
+ .bss           0x000000000000891c        0x4 libuspienv.a(logger.o)
+ .bss           0x0000000000008920        0x0 libuspienv.a(screen.o)
+ .bss           0x0000000000008920        0x8 libuspienv.a(synchronize.o)
+ .bss           0x0000000000008928        0x4 libuspienv.a(timer.o)
+ .bss           0x000000000000892c        0x0 libuspienv.a(uspibind.o)
+ .bss           0x000000000000892c      0x3f8 libuspienv.a(uspienv.o)
+ .bss           0x0000000000008d24        0x0 libuspienv.a(util.o)
+ .bss           0x0000000000008d24        0x0 libuspienv.a(util_fast.o)
+ .bss           0x0000000000008d24        0x0 libuspienv.a(memory.o)
+ .bss           0x0000000000008d24        0x0 libuspienv.a(pagetable.o)
+ .bss           0x0000000000008d24        0x4 libuspienv.a(exceptionhandler.o)
+ .bss           0x0000000000008d28        0x0 libuspienv.a(bcmframebuffer.o)
+ .bss           0x0000000000008d28        0x0 libuspienv.a(bcmpropertytags.o)
+ .bss           0x0000000000008d28        0x0 libuspienv.a(chargenerator.o)
+ .bss           0x0000000000008d28        0x0 libuspienv.a(delayloop.o)
+ .bss           0x0000000000008d28        0x0 libuspienv.a(exceptionstub.o)
+ .bss           0x0000000000008d28        0x4 libuspienv.a(interrupt.o)
+ .bss           0x0000000000008d2c        0x0 libuspienv.a(libhelper.o)
+ .bss           0x0000000000008d2c        0x0 libuspienv.a(memio.o)
+ .bss           0x0000000000008d2c        0x0 libuspienv.a(bcmmailbox.o)
 
-.text           0x00000000000088a4      0x738
+.text           0x0000000000008d30    0x1204c
  *.c.o(.text)
  *(.text)
- .text          0x00000000000088a4       0x88 build/kernel.o
-                0x00000000000088a4                kernel_main
- .text          0x000000000000892c       0x38 build/startup.o
-                0x000000000000892c                _cstartup
- .text          0x0000000000008964       0x60 build/mailbox.o
-                0x0000000000008964                MailboxWrite
-                0x0000000000008990                MailboxRead
- .text          0x00000000000089c4       0x60 build/framebuffer.o
-                0x00000000000089c4                InitialiseFrameBuffer
- .text          0x0000000000008a24      0x244 build/text.o
-                0x0000000000008a24                DrawStringz
-                0x0000000000008a50                CharCount
-                0x0000000000008a6c                SignedString
-                0x0000000000008aac                UnsignedString
-                0x0000000000008b00                ReverseString
-                0x0000000000008b2c                FormatString
- .text          0x0000000000008c68       0x24 build/systemTimer.o
-                0x0000000000008c68                timerWait
- .text          0x0000000000008c8c      0x1f0 build/drawing.o
-                0x0000000000008c8c                SetForeColour
-                0x0000000000008ca0                SetGraphicsAddress
-                0x0000000000008cac                DrawPixel
-                0x0000000000008ce8                DrawLine
-                0x0000000000008d64                DrawByte
-                0x0000000000008dac                DrawCharacter
-                0x0000000000008e00                DrawString
- .text          0x0000000000008e7c       0xa4 build/gpio.o
-                0x0000000000008e7c                SetGpioFunction
-                0x0000000000008ecc                SetGpio
- .text          0x0000000000008f20        0x0 build/main.o
- .text          0x0000000000008f20       0x18 build/random.o
-                0x0000000000008f20                Random
- .text          0x0000000000008f38       0x48 build/maths.o
-                0x0000000000008f38                DivideU32
- .text          0x0000000000008f80       0x5c build/tags.o
-                0x0000000000008f80                FindTag
+ .text          0x0000000000008d30        0x0 build/keyboard.o
+ .text          0x0000000000008d30      0x348 build/snake.o
+                0x0000000000008d30                snake
+ .text          0x0000000000009078       0xf0 build/kernel.o
+                0x00000000000090bc                kernel_main
+ .text          0x0000000000009168       0x38 build/startup.o
+                0x0000000000009168                _cstartup
+ .text          0x00000000000091a0       0x60 build/mailbox.o
+                0x00000000000091a0                MailboxWrite
+                0x00000000000091cc                MailboxRead
+ .text          0x0000000000009200       0x60 build/framebuffer.o
+                0x0000000000009200                InitialiseFrameBuffer
+ .text          0x0000000000009260      0x244 build/text.o
+                0x0000000000009260                DrawStringz
+                0x000000000000928c                CharCount
+                0x00000000000092a8                SignedString
+                0x00000000000092e8                UnsignedString
+                0x000000000000933c                ReverseString
+                0x0000000000009368                FormatString
+ .text          0x00000000000094a4       0x24 build/systemTimer.o
+                0x00000000000094a4                timerWait
+ .text          0x00000000000094c8      0x1f0 build/drawing.o
+                0x00000000000094c8                SetForeColour
+                0x00000000000094dc                SetGraphicsAddress
+                0x00000000000094e8                DrawPixel
+                0x0000000000009524                DrawLine
+                0x00000000000095a0                DrawByte
+                0x00000000000095e8                DrawCharacter
+                0x000000000000963c                DrawString
+ .text          0x00000000000096b8       0xa4 build/gpio.o
+                0x00000000000096b8                SetGpioFunction
+                0x0000000000009708                SetGpio
+ .text          0x000000000000975c        0x0 build/main.o
+ .text          0x000000000000975c       0x18 build/random.o
+                0x000000000000975c                Random
+ .text          0x0000000000009774       0x48 build/maths.o
+                0x0000000000009774                DivideU32
+ .text          0x00000000000097bc       0x5c build/tags.o
+                0x00000000000097bc                FindTag
+ .text          0x0000000000009818      0xd10 libuspi.a(uspilibrary.o)
+                0x0000000000009818                USPiInitialize
+                0x0000000000009a6c                USPiKeyboardAvailable
+                0x0000000000009ab4                USPiKeyboardRegisterKeyPressedHandler
+                0x0000000000009b28                USPiKeyboardRegisterShutdownHandler
+                0x0000000000009b9c                USPiKeyboardRegisterKeyStatusHandlerRaw
+                0x0000000000009c10                USPiMouseAvailable
+                0x0000000000009c58                USPiMouseRegisterStatusHandler
+                0x0000000000009ccc                USPiMassStorageDeviceAvailable
+                0x0000000000009d54                USPiMassStorageDeviceRead
+                0x0000000000009e08                USPiMassStorageDeviceWrite
+                0x0000000000009ebc                USPiMassStorageDeviceGetCapacity
+                0x0000000000009f28                USPiEthernetAvailable
+                0x0000000000009f70                USPiGetMACAddress
+                0x000000000000a00c                USPiSendFrame
+                0x000000000000a090                USPiReceiveFrame
+                0x000000000000a114                USPiGamePadAvailable
+                0x000000000000a19c                USPiGamePadRegisterStatusHandler
+                0x000000000000a204                USPiGamePadGetStatus
+                0x000000000000a288                USPiMIDIAvailable
+                0x000000000000a2d4                USPiMIDIRegisterPacketHandler
+                0x000000000000a34c                USPiDeviceGetInformation
+ .text          0x000000000000a528     0x2860 libuspi.a(dwhcidevice.o)
+                0x000000000000a528                DWHCIDeviceCompletionRoutine
+                0x000000000000a55c                DWHCIDevice
+                0x000000000000a5b8                _DWHCIDevice
+                0x000000000000a5c8                DWHCIDeviceEnableGlobalInterrupts
+                0x000000000000a630                DWHCIDeviceEnableCommonInterrupts
+                0x000000000000a68c                DWHCIDeviceEnableHostInterrupts
+                0x000000000000a708                DWHCIDeviceEnableChannelInterrupt
+                0x000000000000a780                DWHCIDeviceDisableChannelInterrupt
+                0x000000000000a7f8                DWHCIDeviceStartChannel
+                0x000000000000abd8                DWHCIDeviceStartTransaction
+                0x000000000000ad04                DWHCIDeviceTimerHandler
+                0x000000000000ae20                DWHCIDeviceAllocateChannel
+                0x000000000000aebc                DWHCIDeviceFreeChannel
+                0x000000000000af50                DWHCIDeviceTransferStageAsync
+                0x000000000000b104                DWHCIDeviceSubmitAsyncRequest
+                0x000000000000b1f4                DWHCIDeviceTransferStage
+                0x000000000000b2c8                DWHCIDeviceSubmitBlockingRequest
+                0x000000000000b528                DWHCIDeviceControlMessage
+                0x000000000000b614                DWHCIDeviceGetDescriptor
+                0x000000000000b684                DWHCIDeviceSetAddress
+                0x000000000000b6fc                DWHCIDeviceSetConfiguration
+                0x000000000000b774                DWHCIDeviceTransfer
+                0x000000000000b804                DWHCIDeviceChannelInterruptHandler
+                0x000000000000bdec                DWHCIDeviceInterruptHandler
+                0x000000000000bf04                DWHCIDeviceWaitForBit
+                0x000000000000bfec                DWHCIDeviceEnableRootPort
+                0x000000000000c0d8                DWHCIDeviceReset
+                0x000000000000c1ac                DWHCIDeviceInitCore
+                0x000000000000c41c                DWHCIDeviceFlushTxFIFO
+                0x000000000000c4c8                DWHCIDeviceFlushRxFIFO
+                0x000000000000c558                DWHCIDeviceInitHost
+                0x000000000000c778                DWHCIDeviceInitialize
+                0x000000000000c98c                DWHCIDeviceGetPortSpeed
+                0x000000000000ca10                DWHCIDeviceOvercurrentDetected
+                0x000000000000ca80                DWHCIDeviceDisableRootPort
+                0x000000000000cae8                DWHCIDeviceDumpRegister
+                0x000000000000cb68                DWHCIDeviceDumpStatus
+ .text          0x000000000000cd88      0x4b4 libuspi.a(dwhciregister.o)
+                0x000000000000cd88                DWHCIRegister
+                0x000000000000cdc0                DWHCIRegister2
+                0x000000000000ce00                _DWHCIRegister
+                0x000000000000ce30                DWHCIRegisterRead
+                0x000000000000ce6c                DWHCIRegisterWrite
+                0x000000000000cec0                DWHCIRegisterGet
+                0x000000000000cf0c                DWHCIRegisterSet
+                0x000000000000cf44                DWHCIRegisterIsSet
+                0x000000000000cfa0                DWHCIRegisterAnd
+                0x000000000000cff8                DWHCIRegisterOr
+                0x000000000000d050                DWHCIRegisterClearBit
+                0x000000000000d0c8                DWHCIRegisterSetBit
+                0x000000000000d140                DWHCIRegisterClearAll
+                0x000000000000d178                DWHCIRegisterSetAll
+                0x000000000000d1b0                DWHCIRegisterDump
+ .text          0x000000000000d23c      0xd5c libuspi.a(dwhcixferstagedata.o)
+                0x000000000000d23c                _DWHCITransferStageData
+                0x000000000000d2b8                DWHCITransferStageDataTransactionComplete
+                0x000000000000d410                DWHCITransferStageDataSetSplitComplete
+                0x000000000000d460                DWHCITransferStageDataSetState
+                0x000000000000d490                DWHCITransferStageDataGetState
+                0x000000000000d4bc                DWHCITransferStageDataSetSubState
+                0x000000000000d4ec                DWHCITransferStageDataGetSubState
+                0x000000000000d518                DWHCITransferStageDataBeginSplitCycle
+                0x000000000000d520                DWHCITransferStageDataGetChannelNumber
+                0x000000000000d54c                DWHCITransferStageDataIsPeriodic
+                0x000000000000d5b8                DWHCITransferStageData
+                0x000000000000d8c8                DWHCITransferStageDataGetDeviceAddress
+                0x000000000000d91c                DWHCITransferStageDataGetEndpointType
+                0x000000000000d9c0                DWHCITransferStageDataGetEndpointNumber
+                0x000000000000da14                DWHCITransferStageDataGetMaxPacketSize
+                0x000000000000da44                DWHCITransferStageDataGetSpeed
+                0x000000000000da70                DWHCITransferStageDataGetPID
+                0x000000000000db18                DWHCITransferStageDataIsDirectionIn
+                0x000000000000db48                DWHCITransferStageDataIsStatusStage
+                0x000000000000db78                DWHCITransferStageDataGetDMAAddress
+                0x000000000000dbc8                DWHCITransferStageDataGetBytesToTransfer
+                0x000000000000dbf8                DWHCITransferStageDataGetPacketsToTransfer
+                0x000000000000dc28                DWHCITransferStageDataIsSplit
+                0x000000000000dc58                DWHCITransferStageDataIsSplitComplete
+                0x000000000000dcac                DWHCITransferStageDataGetHubAddress
+                0x000000000000dd24                DWHCITransferStageDataGetHubPortAddress
+                0x000000000000dda0                DWHCITransferStageDataGetSplitPosition
+                0x000000000000ddf0                DWHCITransferStageDataGetStatusMask
+                0x000000000000de54                DWHCITransferStageDataGetTransactionStatus
+                0x000000000000dea4                DWHCITransferStageDataIsStageComplete
+                0x000000000000dedc                DWHCITransferStageDataGetResultLen
+                0x000000000000df18                DWHCITransferStageDataGetURB
+                0x000000000000df68                DWHCITransferStageDataGetFrameScheduler
+ .text          0x000000000000df98      0xdd8 libuspi.a(usbdevice.o)
+                0x000000000000df98                USBDeviceConfigure
+                0x000000000000e060                USBDevice
+                0x000000000000e170                USBDeviceCopy
+                0x000000000000e340                _USBDevice
+                0x000000000000e3f4                USBDeviceGetName
+                0x000000000000e5b4                USBDeviceGetAddress
+                0x000000000000e5e4                USBDeviceGetSpeed
+                0x000000000000e614                USBDeviceGetHubAddress
+                0x000000000000e644                USBDeviceGetHubPortNumber
+                0x000000000000e674                USBDeviceGetEndpoint0
+                0x000000000000e6c8                USBDeviceGetHost
+                0x000000000000e718                USBDeviceGetDeviceDescriptor
+                0x000000000000e768                USBDeviceGetConfigurationDescriptor
+                0x000000000000e7bc                USBDeviceGetDescriptor
+                0x000000000000e81c                USBDeviceConfigurationError
+                0x000000000000e878                USBDeviceSetAddress
+                0x000000000000e8cc                USBDeviceInitialize
+ .text          0x000000000000ed70      0x5f8 libuspi.a(usbendpoint.o)
+                0x000000000000ed70                USBEndpoint
+                0x000000000000ede0                USBEndpoint2
+                0x000000000000ef8c                USBEndpointCopy
+                0x000000000000f028                _USBEndpoint
+                0x000000000000f058                USBEndpointGetDevice
+                0x000000000000f0a4                USBEndpointGetNumber
+                0x000000000000f0d0                USBEndpointGetType
+                0x000000000000f0fc                USBEndpointIsDirectionIn
+                0x000000000000f128                USBEndpointSetMaxPacketSize
+                0x000000000000f158                USBEndpointGetMaxPacketSize
+                0x000000000000f184                USBEndpointGetInterval
+                0x000000000000f1d0                USBEndpointGetNextPID
+                0x000000000000f238                USBEndpointSkipPID
+                0x000000000000f318                USBEndpointResetPID
+ .text          0x000000000000f368      0x3b4 libuspi.a(usbrequest.o)
+                0x000000000000f368                USBRequest
+                0x000000000000f410                _USBRequest
+                0x000000000000f44c                USBRequestGetEndpoint
+                0x000000000000f498                USBRequestSetStatus
+                0x000000000000f4c8                USBRequestSetResultLen
+                0x000000000000f4f8                USBRequestGetStatus
+                0x000000000000f524                USBRequestGetResultLength
+                0x000000000000f570                USBRequestGetSetupData
+                0x000000000000f5e0                USBRequestGetBuffer
+                0x000000000000f638                USBRequestGetBufLen
+                0x000000000000f664                USBRequestSetCompletionRoutine
+                0x000000000000f6c0                USBRequestCallCompletionRoutine
+ .text          0x000000000000f71c      0x318 libuspi.a(devicenameservice.o)
+                0x000000000000f71c                DeviceNameService
+                0x000000000000f77c                _DeviceNameService
+                0x000000000000f828                DeviceNameServiceAddDevice
+                0x000000000000f908                DeviceNameServiceGetDevice
+                0x000000000000f9ec                DeviceNameServiceGet
+ .text          0x000000000000fa34      0x39c libuspi.a(macaddress.o)
+                0x000000000000fa34                MACAddress
+                0x000000000000fa64                _MACAddress
+                0x000000000000fa94                MACAddressSet
+                0x000000000000faf4                MACAddress2
+                0x000000000000fb2c                MACAddressSetBroadcast
+                0x000000000000fb6c                MACAddressGet
+                0x000000000000fbb8                MACAddressIsEqual
+                0x000000000000fc24                MACAddressCopyTo
+                0x000000000000fc9c                MACAddressIsBroadcast
+                0x000000000000fd20                MACAddressGetSize
+                0x000000000000fd28                MACAddressFormat
+ .text          0x000000000000fdd0      0xb64 libuspi.a(smsc951x.o)
+                0x000000000000fdd0                SMSC951xDevice
+                0x000000000000fe4c                _SMSC951xDevice
+                0x000000000000fed4                SMSC951xDeviceGetMACAddress
+                0x000000000000ff04                SMSC951xDeviceSendFrame
+                0x000000000000fff8                SMSC951xDeviceReceiveFrame
+                0x00000000000101c8                SMSC951xDeviceWriteReg
+                0x0000000000010254                SMSC951xDeviceConfigure
+                0x000000000001065c                SMSC951xDeviceReadReg
+                0x00000000000106e8                SMSC951xDeviceDumpReg
+                0x0000000000010778                SMSC951xDeviceDumpRegs
+ .text          0x0000000000010934      0xa84 libuspi.a(string.o)
+                0x0000000000010934                String
+                0x0000000000010968                String2
+                0x00000000000109b4                _String
+                0x00000000000109f4                StringGet
+                0x0000000000010a30                StringSet
+                0x0000000000010a90                StringGetLength
+                0x0000000000010ad0                StringAppend
+                0x0000000000010b70                StringCompare
+                0x0000000000010ba8                StringFind
+                0x0000000000010c20                StringReserveSpace
+                0x0000000000010cb4                StringPutChar
+                0x0000000000010d18                StringPutString
+                0x0000000000010d74                ntoa
+                0x0000000000010e34                StringFormatV
+                0x0000000000011368                StringFormat
+ .text          0x00000000000113b8      0x288 libuspi.a(util.o)
+                0x00000000000113b8                uspi_memset
+                0x00000000000113d8                uspi_memcpy
+                0x00000000000113fc                uspi_memcmp
+                0x0000000000011474                uspi_strlen
+                0x00000000000114a4                uspi_strcmp
+                0x000000000001153c                uspi_strcpy
+                0x0000000000011570                uspi_strncpy
+                0x00000000000115c4                uspi_strcat
+                0x0000000000011610                uspi_char2int
+                0x0000000000011614                uspi_le2be16
+                0x0000000000011624                uspi_le2be32
+ .text          0x0000000000011640      0xdc4 libuspi.a(usbmassdevice.o)
+                0x0000000000011640                USBBulkOnlyMassStorageDevice
+                0x00000000000116a4                _USBBulkOnlyMassStorageDevice
+                0x0000000000011714                USBBulkOnlyMassStorageDeviceSeek
+                0x0000000000011754                USBBulkOnlyMassStorageDeviceGetCapacity
+                0x0000000000011784                USBBulkOnlyMassStorageDeviceCommand
+                0x0000000000011a2c                USBBulkOnlyMassStorageDeviceConfigure
+                0x0000000000011f24                USBBulkOnlyMassStorageDeviceTryRead
+                0x000000000001206c                USBBulkOnlyMassStorageDeviceTryWrite
+                0x00000000000121ac                USBBulkOnlyMassStorageDeviceReset
+                0x000000000001231c                USBBulkOnlyMassStorageDeviceRead
+                0x0000000000012390                USBBulkOnlyMassStorageDeviceWrite
+ .text          0x0000000000012404      0x2b0 libuspi.a(dwhciframeschednper.o)
+                0x0000000000012404                DWHCIFrameSchedulerNonPeriodicWaitForFrame
+                0x0000000000012408                DWHCIFrameSchedulerNonPeriodicIsOddFrame
+                0x0000000000012410                _DWHCIFrameSchedulerNonPeriodic
+                0x0000000000012440                DWHCIFrameSchedulerNonPeriodicStartSplit
+                0x0000000000012470                DWHCIFrameSchedulerNonPeriodicCompleteSplit
+                0x000000000001250c                DWHCIFrameSchedulerNonPeriodicTransactionComplete
+                0x000000000001263c                DWHCIFrameSchedulerNonPeriodic
+ .text          0x00000000000126b4      0x37c libuspi.a(dwhciframeschedper.o)
+                0x00000000000126b4                _DWHCIFrameSchedulerPeriodic
+                0x00000000000126e4                DWHCIFrameSchedulerPeriodicStartSplit
+                0x000000000001271c                DWHCIFrameSchedulerPeriodicCompleteSplit
+                0x00000000000127d4                DWHCIFrameSchedulerPeriodicIsOddFrame
+                0x0000000000012804                DWHCIFrameSchedulerPeriodicTransactionComplete
+                0x0000000000012928                DWHCIFrameSchedulerPeriodicWaitForFrame
+                0x00000000000129b0                DWHCIFrameSchedulerPeriodic
+ .text          0x0000000000012a30      0x8cc libuspi.a(usbkeyboard.o)
+                0x0000000000012b3c                USBKeyboardDeviceConfigure
+                0x00000000000130c0                USBKeyboardDevice
+                0x000000000001315c                _CUSBKeyboardDevice
+                0x00000000000131cc                USBKeyboardDeviceRegisterKeyPressedHandler
+                0x0000000000013218                USBKeyboardDeviceRegisterSelectConsoleHandler
+                0x0000000000013264                USBKeyboardDeviceRegisterShutdownHandler
+                0x00000000000132b0                USBKeyboardDeviceRegisterKeyStatusHandlerRaw
+ .text          0x00000000000132fc      0x308 libuspi.a(dwhcirootport.o)
+                0x00000000000132fc                DWHCIRootPort
+                0x0000000000013350                _DWHCIRootPort
+                0x00000000000133a0                DWHCIRootPortInitialize
+ .text          0x0000000000013604      0x614 libuspi.a(usbmouse.o)
+                0x0000000000013700                USBMouseDeviceConfigure
+                0x0000000000013ae4                USBMouseDevice
+                0x0000000000013b64                _CUSBMouseDevice
+                0x0000000000013bcc                USBMouseDeviceRegisterStatusHandler
+ .text          0x0000000000013c18      0x19c libuspi.a(dwhciframeschednsplit.o)
+                0x0000000000013c18                _DWHCIFrameSchedulerNoSplit
+                0x0000000000013c1c                DWHCIFrameSchedulerNoSplitStartSplit
+                0x0000000000013c3c                DWHCIFrameSchedulerNoSplitCompleteSplit
+                0x0000000000013c60                DWHCIFrameSchedulerNoSplitTransactionComplete
+                0x0000000000013c80                DWHCIFrameSchedulerNoSplitIsOddFrame
+                0x0000000000013cb0                DWHCIFrameSchedulerNoSplitWaitForFrame
+                0x0000000000013d34                DWHCIFrameSchedulerNoSplit
+ .text          0x0000000000013db4      0xe88 libuspi.a(usbgamepad.o)
+                0x0000000000014400                USBGamePadDeviceConfigure
+                0x0000000000014a08                USBGamePadDevice
+                0x0000000000014ae4                _CUSBGamePadDevice
+                0x0000000000014b84                USBGamePadDeviceRegisterStatusHandler
+                0x0000000000014bd4                USBGamePadDeviceGetReport
+ .text          0x0000000000014c3c       0xd4 libuspi.a(synchronize.o)
+                0x0000000000014c3c                uspi_EnterCritical
+                0x0000000000014c7c                uspi_LeaveCritical
+                0x0000000000014ce0                uspi_CleanAndInvalidateDataCacheRange
+ .text          0x0000000000014d10      0x728 libuspi.a(usbstring.o)
+                0x0000000000014d10                USBString
+                0x0000000000014d94                USBStringCopy
+                0x0000000000014e90                _USBString
+                0x0000000000014f10                USBStringGetFromDescriptor
+                0x00000000000151d8                USBStringGet
+                0x0000000000015208                USBStringGetLanguageID
+ .text          0x0000000000015438      0x5d0 libuspi.a(usbmidi.o)
+                0x0000000000015534                USBMIDIDeviceConfigure
+                0x00000000000158fc                USBMIDIDevice
+                0x0000000000015954                _CUSBMIDIDevice
+                0x00000000000159bc                USBMIDIDeviceRegisterPacketHandler
+ .text          0x0000000000015a08      0x348 libuspi.a(usbconfigparser.o)
+                0x0000000000015a08                USBConfigurationParser
+                0x0000000000015ba0                _USBConfigurationParser
+                0x0000000000015bd0                USBConfigurationParserIsValid
+                0x0000000000015bfc                USBConfigurationParserGetDescriptor
+                0x0000000000015cd8                USBConfigurationParserError
+ .text          0x0000000000015d50      0x314 libuspi.a(usbdevicefactory.o)
+                0x0000000000015d50                GetDevice
+                0x0000000000015fdc                USBDeviceFactoryGetDevice
+ .text          0x0000000000016064      0xd28 libuspi.a(usbstandardhub.o)
+                0x0000000000016064                USBStandardHub
+                0x00000000000160d0                _USBStandardHub
+                0x000000000001617c                USBStandardHubInitialize
+                0x00000000000161ac                USBStandardHubGetDeviceNames
+                0x00000000000162d0                USBStandardHubEnumeratePorts
+                0x0000000000016a24                USBStandardHubConfigure
+ .text          0x0000000000016d8c      0x3f0 libuspi.a(keymap.o)
+                0x0000000000016d8c                KeyMap
+                0x0000000000016ddc                _KeyMap
+                0x0000000000016de0                KeyMapClearTable
+                0x0000000000016e3c                KeyMapSetEntry
+                0x0000000000016ec0                KeyMapTranslate
+                0x0000000000017024                KeyMapGetString
+                0x0000000000017124                KeyMapGetLEDStatus
+ .text          0x000000000001717c      0x410 libuspienv.a(alloc.o)
+                0x000000000001717c                mem_init
+                0x00000000000171c0                mem_get_size
+                0x00000000000171e8                malloc
+                0x000000000001738c                free
+                0x0000000000017484                palloc
+                0x000000000001753c                pfree
+ .text          0x000000000001758c       0x88 libuspienv.a(assert.o)
+                0x000000000001758c                assertion_failed
+ .text          0x0000000000017614      0x19c libuspienv.a(debug.o)
+                0x0000000000017614                debug_hexdump
+                0x0000000000017724                debug_stacktrace
+ .text          0x00000000000177b0       0x2c libuspienv.a(libstub.o)
+                0x00000000000177b0                __aeabi_uidiv
+                0x00000000000177c0                __aeabi_uidivmod
+ .text          0x00000000000177dc      0x32c libuspienv.a(logger.o)
+                0x00000000000177dc                Logger
+                0x00000000000177fc                _Logger
+                0x0000000000017818                LoggerGet
+                0x0000000000017828                LoggerWrite2
+                0x0000000000017850                LoggerWriteV
+                0x0000000000017ab0                LoggerWrite
+                0x0000000000017ae0                LoggerInitialize
+ .text          0x0000000000017b08      0xd98 libuspienv.a(screen.o)
+                0x0000000000017b08                ScreenDevice
+                0x0000000000017b54                _ScreenDevice
+                0x0000000000017b84                ScreenDeviceGetWidth
+                0x0000000000017b8c                ScreenDeviceGetHeight
+                0x0000000000017b94                ScreenDeviceSetPixel
+                0x0000000000017bbc                ScreenDeviceGetPixel
+                0x0000000000017bf8                ScreenDeviceCarriageReturn
+                0x0000000000017c04                ScreenDeviceCursorHome
+                0x0000000000017c14                ScreenDeviceCursorLeft
+                0x0000000000017c7c                ScreenDeviceCursorMove
+                0x0000000000017cd0                ScreenDeviceCursorUp
+                0x0000000000017d08                ScreenDeviceDeleteChars
+                0x0000000000017d0c                ScreenDeviceDeleteLines
+                0x0000000000017d10                ScreenDeviceInsertLines
+                0x0000000000017d14                ScreenDeviceInsertMode
+                0x0000000000017d1c                ScreenDeviceReverseScroll
+                0x0000000000017d20                ScreenDeviceSetCursorMode
+                0x0000000000017d28                ScreenDeviceSetStandoutMode
+                0x0000000000017dc8                ScreenDeviceScroll
+                0x0000000000017e40                ScreenDeviceCursorDown
+                0x0000000000017e8c                ScreenDeviceNewLine
+                0x0000000000017ea0                ScreenDeviceCursorRight
+                0x0000000000017ed4                ScreenDeviceTabulator
+                0x0000000000017f18                ScreenDeviceDisplayChar2
+                0x0000000000017fb4                ScreenDeviceRotor
+                0x000000000001800c                ScreenDeviceDisplayChar
+                0x0000000000018048                ScreenDeviceEraseChar
+                0x00000000000180b4                ScreenDeviceClearLineEnd
+                0x00000000000180fc                ScreenDeviceClearDisplayEnd
+                0x0000000000018140                ScreenDeviceEraseChars
+                0x00000000000181a8                ScreenDeviceWrite2
+                0x0000000000018688                ScreenDeviceInvertCursor
+                0x0000000000018724                ScreenDeviceInitialize
+                0x000000000001884c                ScreenDeviceWrite
+ .text          0x00000000000188a0       0xa4 libuspienv.a(synchronize.o)
+                0x00000000000188a0                EnterCritical
+                0x00000000000188e0                LeaveCritical
+ .text          0x0000000000018944      0x764 libuspienv.a(timer.o)
+                0x0000000000018944                Timer
+                0x00000000000189e4                _Timer
+                0x00000000000189f8                TimerGetClockTicks
+                0x0000000000018a38                TimerGetTicks
+                0x0000000000018a64                TimerGetTime
+                0x0000000000018a90                TimerGetTimeString
+                0x0000000000018b88                TimerStartKernelTimer
+                0x0000000000018c64                TimerCancelKernelTimer
+                0x0000000000018cbc                TimerMsDelay
+                0x0000000000018cfc                TimerusDelay
+                0x0000000000018d3c                TimerGet
+                0x0000000000018d84                TimerSimpleusDelay
+                0x0000000000018dd0                TimerSimpleMsDelay
+                0x0000000000018dec                TimerPollKernelTimers
+                0x0000000000018e6c                TimerInterruptHandler
+                0x0000000000018f6c                TimerTuneMsDelay
+                0x0000000000018ffc                TimerInitialize
+ .text          0x00000000000190a8      0x1f4 libuspienv.a(uspibind.o)
+                0x00000000000190a8                MsDelay
+                0x00000000000190c0                usDelay
+                0x00000000000190d8                StartKernelTimer
+                0x0000000000019110                CancelKernelTimer
+                0x0000000000019128                ConnectInterrupt
+                0x0000000000019150                SetPowerStateOn
+                0x00000000000191cc                GetMACAddress
+                0x000000000001923c                LogWrite
+                0x0000000000019284                uspi_assertion_failed
+                0x0000000000019290                DebugHexdump
+ .text          0x000000000001929c      0x148 libuspienv.a(uspienv.o)
+                0x000000000001929c                USPiEnvInitialize
+                0x000000000001939c                USPiEnvClose
+                0x00000000000193d8                USPiEnvGetScreen
+ .text          0x00000000000193e4      0x288 libuspienv.a(util.o)
+                0x00000000000193e4                memset
+                0x0000000000019404                memcpy
+                0x0000000000019428                memcmp
+                0x00000000000194a0                strlen
+                0x00000000000194d0                strcmp
+                0x0000000000019568                strcpy
+                0x000000000001959c                strncpy
+                0x00000000000195f0                strcat
+                0x000000000001963c                char2int
+                0x0000000000019640                le2be16
+                0x0000000000019650                le2be32
+ .text          0x000000000001966c       0x20 libuspienv.a(util_fast.o)
+                0x000000000001966c                memcpyblk
+ .text          0x000000000001968c      0x2d8 libuspienv.a(memory.o)
+                0x000000000001968c                _MemorySystem
+                0x0000000000019708                MemorySystemGetMemSize
+                0x0000000000019734                MemorySystemEnableMMU
+                0x0000000000019834                MemorySystem
+ .text          0x0000000000019964      0x218 libuspienv.a(pagetable.o)
+                0x0000000000019964                PageTable
+                0x0000000000019a04                PageTable2
+                0x0000000000019b08                _PageTable
+                0x0000000000019b4c                PageTableGetBaseAddress
+ .text          0x0000000000019b7c      0x2cc libuspienv.a(exceptionhandler.o)
+                0x0000000000019b7c                ExceptionHandler2
+                0x0000000000019c38                _ExceptionHandler
+                0x0000000000019c80                ExceptionHandlerThrow
+                0x0000000000019cdc                ExceptionHandlerThrow2
+                0x0000000000019dd8                ExceptionHandlerGet
+                0x0000000000019e20                ExceptionHandler
+ .text          0x0000000000019e48      0x364 libuspienv.a(bcmframebuffer.o)
+                0x0000000000019e48                BcmFrameBuffer
+                0x0000000000019f98                _BcmFrameBuffer
+                0x0000000000019fd8                BcmFrameBufferSetPalette
+                0x000000000001a020                BcmFrameBufferInitialize
+                0x000000000001a088                BcmFrameBufferGetWidth
+                0x000000000001a0b8                BcmFrameBufferGetHeight
+                0x000000000001a0e8                BcmFrameBufferGetPitch
+                0x000000000001a118                BcmFrameBufferGetDepth
+                0x000000000001a148                BcmFrameBufferGetBuffer
+                0x000000000001a17c                BcmFrameBufferGetSize
+ .text          0x000000000001a1ac      0x1c4 libuspienv.a(bcmpropertytags.o)
+                0x000000000001a1ac                BcmPropertyTags
+                0x000000000001a1e0                _BcmPropertyTags
+                0x000000000001a210                BcmPropertyTagsGetTag
+ .text          0x000000000001a370      0x180 libuspienv.a(chargenerator.o)
+                0x000000000001a370                CharGenerator
+                0x000000000001a3a0                _CharGenerator
+                0x000000000001a3a4                CharGeneratorGetCharWidth
+                0x000000000001a3d0                CharGeneratorGetCharHeight
+                0x000000000001a404                CharGeneratorGetUnderline
+                0x000000000001a438                CharGeneratorGetPixel
+ .text          0x000000000001a4f0        0xc libuspienv.a(delayloop.o)
+                0x000000000001a4f0                DelayLoop
+ .text          0x000000000001a4fc       0xe0 libuspienv.a(exceptionstub.o)
+                0x000000000001a4fc                UndefinedInstructionStub
+                0x000000000001a540                PrefetchAbortStub
+                0x000000000001a584                DataAbortStub
+                0x000000000001a5c8                IRQStub
+ .text          0x000000000001a5dc      0x4d4 libuspienv.a(interrupt.o)
+                0x000000000001a5dc                InterruptSystem
+                0x000000000001a630                _InterruptSystem
+                0x000000000001a644                InterruptSystemInitialize
+                0x000000000001a73c                InterruptSystemEnableIRQ
+                0x000000000001a7b4                InterruptSystemConnectIRQ
+                0x000000000001a838                InterruptSystemDisableIRQ
+                0x000000000001a8b0                InterruptSystemDisconnectIRQ
+                0x000000000001a930                InterruptSystemGet
+                0x000000000001a978                InterruptSystemCallIRQHandler
+                0x000000000001a9ec                InterruptHandler
+ .text          0x000000000001aab0       0xd8 libuspienv.a(libhelper.o)
+                0x000000000001aab0                Divide
+ .text          0x000000000001ab88       0x10 libuspienv.a(memio.o)
+                0x000000000001ab88                read32
+                0x000000000001ab90                write32
+ .text          0x000000000001ab98      0x1e4 libuspienv.a(bcmmailbox.o)
+                0x000000000001ab98                BcmMailBox
+                0x000000000001abc8                _BcmMailBox
+                0x000000000001abf0                BcmMailBoxFlush
+                0x000000000001ac50                BcmMailBoxRead
+                0x000000000001acb4                BcmMailBoxWrite
+                0x000000000001ad28                BcmMailBoxWriteRead
+                0x000000000001ad7c                _etext = .
+
+.rodata         0x000000000001ad7c     0x35fc
+ *(.rodata*)
+ .rodata        0x000000000001ad7c       0x1e build/kernel.o
+ *fill*         0x000000000001ad9a        0x2 
+ .rodata        0x000000000001ad9c        0x5 libuspi.a(uspilibrary.o)
+ *fill*         0x000000000001ada1        0x3 
+ .rodata.str1.4
+                0x000000000001ada4      0x133 libuspi.a(uspilibrary.o)
+                                        0x13f (size before relaxing)
+ *fill*         0x000000000001aed7        0x1 
+ .rodata        0x000000000001aed8        0x6 libuspi.a(dwhcidevice.o)
+ *fill*         0x000000000001aede        0x2 
+ .rodata.str1.4
+                0x000000000001aee0      0x586 libuspi.a(dwhcidevice.o)
+                                        0x58a (size before relaxing)
+ *fill*         0x000000000001b466        0x2 
+ .rodata.str1.4
+                0x000000000001b468       0x85 libuspi.a(dwhciregister.o)
+                                         0x91 (size before relaxing)
+ *fill*         0x000000000001b4ed        0x3 
+ .rodata.str1.4
+                0x000000000001b4f0      0x1c1 libuspi.a(dwhcixferstagedata.o)
+                                        0x1d1 (size before relaxing)
+ *fill*         0x000000000001b6b1        0x3 
+ .rodata        0x000000000001b6b4        0x7 libuspi.a(usbdevice.o)
+ *fill*         0x000000000001b6bb        0x1 
+ .rodata.str1.4
+                0x000000000001b6bc      0x2e0 libuspi.a(usbdevice.o)
+                                        0x2f0 (size before relaxing)
+ .rodata.str1.4
+                0x000000000001b99c      0x192 libuspi.a(usbendpoint.o)
+                                        0x1c6 (size before relaxing)
+ *fill*         0x000000000001bb2e        0x2 
+ .rodata.str1.4
+                0x000000000001bb30       0xd1 libuspi.a(usbrequest.o)
+                                         0xf5 (size before relaxing)
+ *fill*         0x000000000001bc01        0x3 
+ .rodata.str1.4
+                0x000000000001bc04       0x75 libuspi.a(devicenameservice.o)
+                                         0xa9 (size before relaxing)
+ *fill*         0x000000000001bc79        0x3 
+ .rodata.str1.4
+                0x000000000001bc7c       0x3e libuspi.a(macaddress.o)
+                                         0x7a (size before relaxing)
+ *fill*         0x000000000001bcba        0x2 
+ .rodata        0x000000000001bcbc        0x9 libuspi.a(smsc951x.o)
+ *fill*         0x000000000001bcc5        0x3 
+ .rodata.str1.4
+                0x000000000001bcc8      0x24a libuspi.a(smsc951x.o)
+                                        0x272 (size before relaxing)
+ *fill*         0x000000000001bf12        0x2 
+ .rodata.str1.4
+                0x000000000001bf14        0x9 libuspi.a(string.o)
+                                         0x19 (size before relaxing)
+ *fill*         0x000000000001bf1d        0x3 
+ .rodata        0x000000000001bf20        0x5 libuspi.a(usbmassdevice.o)
+ *fill*         0x000000000001bf25        0x3 
+ .rodata.str1.4
+                0x000000000001bf28      0x26c libuspi.a(usbmassdevice.o)
+                                        0x2ac (size before relaxing)
+ .rodata.str1.4
+                0x000000000001c194       0x58 libuspi.a(dwhciframeschednper.o)
+                                         0x68 (size before relaxing)
+ .rodata.str1.4
+                0x000000000001c1ec       0x15 libuspi.a(dwhciframeschedper.o)
+                                         0x68 (size before relaxing)
+ *fill*         0x000000000001c201        0x3 
+ .rodata        0x000000000001c204        0x7 libuspi.a(usbkeyboard.o)
+ *fill*         0x000000000001c20b        0x1 
+ .rodata.str1.4
+                0x000000000001c20c      0x14a libuspi.a(usbkeyboard.o)
+                                        0x192 (size before relaxing)
+ *fill*         0x000000000001c356        0x2 
+ .rodata        0x000000000001c358        0x7 libuspi.a(dwhcirootport.o)
+ *fill*         0x000000000001c35f        0x1 
+ .rodata.str1.4
+                0x000000000001c360       0xbb libuspi.a(dwhcirootport.o)
+                                         0xf3 (size before relaxing)
+ *fill*         0x000000000001c41b        0x1 
+ .rodata        0x000000000001c41c        0x7 libuspi.a(usbmouse.o)
+ *fill*         0x000000000001c423        0x1 
+ .rodata.str1.4
+                0x000000000001c424       0x2c libuspi.a(usbmouse.o)
+                                        0x130 (size before relaxing)
+ .rodata.str1.4
+                0x000000000001c450       0x18 libuspi.a(dwhciframeschednsplit.o)
+                                         0x27 (size before relaxing)
+ .rodata        0x000000000001c468        0xd libuspi.a(usbgamepad.o)
+ *fill*         0x000000000001c475        0x3 
+ .rodata.str1.4
+                0x000000000001c478       0x55 libuspi.a(usbgamepad.o)
+                                        0x154 (size before relaxing)
+ *fill*         0x000000000001c4cd        0x3 
+ .rodata.str1.4
+                0x000000000001c4d0       0x25 libuspi.a(synchronize.o)
+ *fill*         0x000000000001c4f5        0x3 
+ .rodata.str1.4
+                0x000000000001c4f8       0x9e libuspi.a(usbstring.o)
+                                         0xc2 (size before relaxing)
+ *fill*         0x000000000001c596        0x2 
+ .rodata        0x000000000001c598       0x48 libuspi.a(usbmidi.o)
+ .rodata.str1.4
+                0x000000000001c5e0       0x7c libuspi.a(usbmidi.o)
+                                        0x10c (size before relaxing)
+ .rodata.str1.4
+                0x000000000001c65c       0x8f libuspi.a(usbconfigparser.o)
+                                         0xab (size before relaxing)
+ *fill*         0x000000000001c6eb        0x1 
+ .rodata.str1.4
+                0x000000000001c6ec       0x7f libuspi.a(usbdevicefactory.o)
+                                         0xab (size before relaxing)
+ *fill*         0x000000000001c76b        0x1 
+ .rodata        0x000000000001c76c        0x7 libuspi.a(usbstandardhub.o)
+ *fill*         0x000000000001c773        0x1 
+ .rodata.str1.4
+                0x000000000001c774      0x2fc libuspi.a(usbstandardhub.o)
+                                        0x378 (size before relaxing)
+ .rodata        0x000000000001ca70      0x4cc libuspi.a(keymap.o)
+ .rodata.str1.4
+                0x000000000001cf3c       0xda libuspi.a(keymap.o)
+                                         0xf6 (size before relaxing)
+ *fill*         0x000000000001d016        0x2 
+ .rodata.str1.4
+                0x000000000001d018       0xbb libuspienv.a(alloc.o)
+ *fill*         0x000000000001d0d3        0x1 
+ .rodata.str1.4
+                0x000000000001d0d4       0x1d libuspienv.a(assert.o)
+ *fill*         0x000000000001d0f1        0x3 
+ .rodata        0x000000000001d0f4        0x6 libuspienv.a(debug.o)
+ *fill*         0x000000000001d0fa        0x2 
+ .rodata.str1.4
+                0x000000000001d0fc       0x8e libuspienv.a(debug.o)
+ *fill*         0x000000000001d18a        0x2 
+ .rodata.str1.4
+                0x000000000001d18c       0x2b libuspienv.a(logger.o)
+                                         0x33 (size before relaxing)
+ *fill*         0x000000000001d1b7        0x1 
+ .rodata        0x000000000001d1b8        0x5 libuspienv.a(screen.o)
+ .rodata.str1.4
+                0x000000000001d1bd       0x25 libuspienv.a(synchronize.o)
+ *fill*         0x000000000001d1bd        0x3 
+ .rodata.str1.4
+                0x000000000001d1c0       0xcb libuspienv.a(timer.o)
+                                        0x107 (size before relaxing)
+ *fill*         0x000000000001d28b        0x1 
+ .rodata.str1.4
+                0x000000000001d28c       0xa8 libuspienv.a(memory.o)
+                                         0xb4 (size before relaxing)
+ .rodata.str1.4
+                0x000000000001d334       0x49 libuspienv.a(pagetable.o)
+                                         0x55 (size before relaxing)
+ *fill*         0x000000000001d37d        0x3 
+ .rodata        0x000000000001d380       0x18 libuspienv.a(exceptionhandler.o)
+ .rodata.str1.4
+                0x000000000001d398       0xb7 libuspienv.a(exceptionhandler.o)
+                                         0xe3 (size before relaxing)
+ *fill*         0x000000000001d44f        0x1 
+ .rodata.str1.4
+                0x000000000001d450       0x11 libuspienv.a(bcmframebuffer.o)
+                                         0x1f (size before relaxing)
+ *fill*         0x000000000001d461        0x3 
+ .rodata.str1.4
+                0x000000000001d464       0x5f libuspienv.a(bcmpropertytags.o)
+                                         0x6b (size before relaxing)
+ *fill*         0x000000000001d4c3        0x1 
+ .rodata        0x000000000001d4c4      0xdf0 libuspienv.a(chargenerator.o)
+ .rodata.str1.4
+                0x000000000001e2b4       0x2c libuspienv.a(chargenerator.o)
+                                         0x38 (size before relaxing)
+ .rodata.str1.4
+                0x000000000001e2e0       0x65 libuspienv.a(interrupt.o)
+                                         0x81 (size before relaxing)
+ *fill*         0x000000000001e345        0x3 
+ .rodata.str1.4
+                0x000000000001e348        0xc libuspienv.a(libhelper.o)
+                                          0xe (size before relaxing)
+ .rodata.str1.4
+                0x000000000001e354       0x24 libuspienv.a(bcmmailbox.o)
+                                         0x2f (size before relaxing)
 
 /DISCARD/
  *(*)

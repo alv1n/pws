@@ -32,6 +32,11 @@ SECTIONS {
 		*.c.o(.text)
 		*(.text)
 	}
+    
+    _etext = .;
+    .rodata : {
+            *(.rodata*)
+        }
 
 	/*
 	* Finally comes everything else. A fun trick here is to put all other 

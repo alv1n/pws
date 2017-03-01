@@ -47,7 +47,6 @@ main:
 		bl DrawStringz
 
 		lewp$:
-        /*
                         bl KeyboardUpdate
                         bl KeyboardGetChar
                         tst r0,#0

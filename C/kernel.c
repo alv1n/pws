@@ -1,24 +1,25 @@
 #include "../include/uspi.h"
+#include "../include/uspios.h"
+//#include "../include/uspienv.h"
+//#include "../include/util.h"
 #include "stdint.h"
 #include "asm.h"
-/*
-struct FrameBufferDescription{
-    uint32_t height;
-    uint32_t width;
-    uint32_t vWidth;
-    uint32_t vHeight;
-    uint32_t pitch;
-    uint32_t bitDepth;
-    uint32_t x;
-    uint32_t y;
-    uint32_t pointer;
-    uint32_t size;
-};
-*/
-struct FrameBufferDescription FramebufferInfo =
-    { 1024, 768, 1024, 768, 0, 24, 0, 0, 0, 0 };
 
-char str[] = "Lolz";
+//Modifiers and last 6 keys pressed
+unsigned char modifiers;
+unsigned char keys[6];
+
+/*
+static void KeyPressedHandler(unsigned char modif, const unsigned char *pString)
+{
+    DrawStringz(pString,0,0);
+}
+*/
+static void KeyPressedHandler(const char *pString)
+{
+    ScreenDeviceWrite( USPiEnvGetScreen(), pString, strlen(pString));
+}
+
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
@@ -31,9 +32,19 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
 
     SetGraphicsAddress(frameRet);
-    while(1){
-        DrawCharacter('A',120,120);
-        DrawString(str,4,100,100);
+    
+    DrawStringz("Screen turned on succesfully!",0,0);
+    timerWait(5000000);
+    USPiEnvInitialize(); 
+    USPiInitialize();
+
+    USPiKeyboardAvailable();
+    int loc = 0; 
+    
+    USPiKeyboardRegisterKeyPressedHandler(KeyPressedHandler);
+    while(1)
+    {
+        timerWait(10000000);
     }
 }
 
