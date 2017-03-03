@@ -1,9 +1,10 @@
-#import "stdint.h"
-#import "keyboard.h"
+#include "stdint.h"
+#include "keyboard.h"
+
 
 unsigned char modifiers;
 unsigned char keys[6];
-int is_modified;
+int modified;
 
 unsigned char keys_old[6];
 
@@ -46,15 +47,23 @@ static const uint8_t KeysShift[104] =
 void KeyPressedHandler(uint8_t ucModifiers, const unsigned char RawKeys[6])
 {
     modifiers = ucModifiers;
-    is_modified = 0;
+    modified  = 0;
     for(int i = 0;i <6;i++)
     {
-            keys[i] = RawKeys[i];
+        keys_old[i] = keys[i];
+        keys[i] = RawKeys[i];
+    }
+    for(int i=0;i<6;i++)
+    {
+        if(KeyWasDown(keys_old[i]) == 0)
+        {
+            modified = 1;
+        }
     }
     return;
 }
 
-//Checks if Key was in scan
+//Checks if scan was in keys[]
 int KeyWasDown(uint16_t scanCode)
 {
     for(int i=0;i<6;i++)
@@ -79,14 +88,10 @@ unsigned char KeyboardGetChar()
             }
             if(keys[i] <= 103)
             {
-                 uint8_t *modif;
-                 if( (modifiers | 0b00100010) == 0) //Check if either shift is pressed
+                 int *modif = KeysNormal; //Pointer to lookup table
+                 if( (modifiers | 0b00100010) > 0) //Check if either shift is pressed
                  {
                     modif = KeysShift;
-                 }
-                 else
-                 {
-                    modif = KeysNormal;
                  }
 
                  if(modif[ keys[i] ] != 0)

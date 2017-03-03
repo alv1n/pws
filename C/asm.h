@@ -12,13 +12,15 @@ extern struct FrameBufferDescription{
     uint32_t y;
     uint32_t *pointer;
     uint32_t size;
-};
+} FrameBufferDescription;
 
 //Random.s
 extern uint32_t Random(int seed); 
 
 //Drawing.s
 extern uint16_t *foreColour;
+
+extern void DrawPixel(uint8_t x, uint8_t y);
 
 extern void SetForeColour(uint16_t col);
 
@@ -42,5 +44,4 @@ extern void SetGpio(int pin, int status);
 
 //timer.s
 extern void timerWait(int microseconds);
-
 

@@ -11,8 +11,6 @@
 unsigned char modifiers;
 unsigned char keys[6];
 
-
-
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
     USPiEnvInitialize();
@@ -48,10 +46,8 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
                 y += 16;
                 if(y>768)
                 {
-                    ClearScreen();
                     y=0;
-                    timerWait(1000000);
-
+                    //timerWait(2000000);
                     
                 }
              }
