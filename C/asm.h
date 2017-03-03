@@ -1,6 +1,7 @@
 #include "stdint.h"
+#include "graphics.h"
 
-struct FrameBufferDescription{
+extern struct FrameBufferDescription{
     uint32_t height;
     uint32_t width;
     uint32_t vWidth;
@@ -9,13 +10,18 @@ struct FrameBufferDescription{
     uint32_t bitDepth;
     uint32_t x;
     uint32_t y;
-    uint32_t pointer;
+    uint32_t *pointer;
     uint32_t size;
 };
+
 //Random.s
 extern uint32_t Random(int seed); 
 
 //Drawing.s
+extern uint16_t *foreColour;
+
+extern void SetForeColour(uint16_t col);
+
 extern void SetGraphicsAddress(struct FrameBufferDescription *buffer);
 
 extern void DrawCharacter(char character, uint32_t x, uint32_t y);

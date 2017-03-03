@@ -3,7 +3,7 @@
 
 unsigned char modifiers;
 unsigned char keys[6];
-
+int is_modified;
 
 unsigned char keys_old[6];
 
@@ -46,10 +46,10 @@ static const uint8_t KeysShift[104] =
 void KeyPressedHandler(uint8_t ucModifiers, const unsigned char RawKeys[6])
 {
     modifiers = ucModifiers;
+    is_modified = 0;
     for(int i = 0;i <6;i++)
     {
-        keys_old[i] = keys[i];
-        keys[i] = RawKeys[i];
+            keys[i] = RawKeys[i];
     }
     return;
 }
@@ -59,7 +59,7 @@ int KeyWasDown(uint16_t scanCode)
 {
     for(int i=0;i<6;i++)
     {
-        if(scanCode==keys_old[i])
+        if(scanCode==keys[i])
         {
             return 1;
         }

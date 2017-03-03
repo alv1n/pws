@@ -1,16 +1,16 @@
 #include "../include/uspi.h"
 #include "../include/uspios.h"
-//#include "../include/uspienv.h"
-//#include "../include/util.h"
+
 #include "stdint.h"
 #include "asm.h"
 #include "keyboard.h"
 #include "programs.h"
-
+#include "graphics.h"
 
 //Modifiers and last 6 keys pressed
 unsigned char modifiers;
 unsigned char keys[6];
+
 
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
@@ -46,7 +46,16 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
              {
                 x = 0;
                 y += 16;
+                if(y>768)
+                {
+                    ClearScreen();
+                    y=0;
+                    timerWait(1000000);
+
+                    
+                }
              }
+
         }
     }
     

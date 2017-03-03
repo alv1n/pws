@@ -1,5 +1,5 @@
 #include "asm.h"
-
+#include "keyboard.h"
 struct position
 {
     int pos_x[100];
