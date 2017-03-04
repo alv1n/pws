@@ -14,7 +14,7 @@ graphicsAddress:
  */
 .globl SetForeColour
 SetForeColour:
-	cmp r0, #0x10000
+	cmp r0, #0x10000 @0xFFFF - 1
 	movhs pc, lr
 	ldr r1, =foreColour
 	strh r0, [r1]
@@ -133,7 +133,7 @@ DrawLine:
 	.unreq err
 
 /* DrawByte: writes 8 bits in a row (in the framebuffer, at least, that's the most sensible usage)
- * r0: lower byte is written
+ * r0: lower byte is written (uint8_t)
  * r1: x position
  * r2: y position
  */
@@ -146,7 +146,7 @@ DrawByte:
 	movhs pc, lr
 
 	push {r4 - r7, lr}
-	b8towr8 .req r4
+	b8towr8 .req r4 // ByteToWrite 
 	xPos .req r5
 	yPos .req r6
 	count .req r7

@@ -14,9 +14,8 @@ void snake(void)
     char score_str[6];
 
     struct position pos;
-    pos.nom_x = Random(0x23) % 96;
+    pos.nom_x = Random(23) % 96;
     pos.nom_y = Random(pos.nom_x) % 64;
-
     pos.pos_x[0] = (Random(pos.nom_y) + 3) % 96 ;
     pos.pos_y[0] = Random(pos.pos_x) % 64 ;
 
