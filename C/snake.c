@@ -17,7 +17,7 @@ void snake(void)
     pos.nom_x = Random(23) % 96;
     pos.nom_y = Random(pos.nom_x) % 64;
     pos.x[0] = (Random(pos.nom_y) + 3) % 96 ;
-    pos.y[0] = Random(pos.x) % 64 ;
+    pos.y[0] = Random(pos.x[0]) % 64 ;
 
     pos.x[1] = pos.x[0] - 1;
     pos.y[1] = pos.y[0] - 1;

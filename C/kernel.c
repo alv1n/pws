@@ -1,5 +1,6 @@
 #include "../include/uspi.h"
 #include "../include/uspios.h"
+#include "../include/uspienv.h"
 
 #include "stdint.h"
 #include "asm.h"

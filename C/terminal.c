@@ -45,7 +45,7 @@ void TerminalColour(uint8_t colour) //0bxxxx, highest bit adds 1/3 to all, lower
 void TerminalDisplay()
 {
     uint16_t character;
-    uint16_t *taddr = &terminalBuffer[terminalStart];
+    uint16_t *taddr = (uint16_t *)&terminalBuffer[terminalStart];
     uint16_t view = taddr[terminalView - terminalStart];
     uint16_t stop = taddr[terminalStop - terminalStart];
     uint16_t *screen = taddr;

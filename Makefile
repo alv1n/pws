@@ -41,11 +41,11 @@ C_OBJECTS := $(patsubst $(C_SRC)%.c, $(BUILD)%.o, $(wildcard $(C_SRC)*.c))
 LIBRARIES := libuspi.a libuspienv.a
 
 # Include headers
-HEADERS := /include
+HEADERS := include/
 
 # Rule to make everything.
 all: clean $(TARGET) $(LIST) 
-#	cp kernel.img /media/kindo/boot/kernel.img
+	cp kernel.img /media/$(USER)/boot/kernel.img
 
 # Rule to remake everything. Does not include clean.
 rebuild: all
@@ -69,7 +69,7 @@ $(BUILD)%.o: $(ASM_SRC)%.s $(BUILD)
 	$(ARMGNU)-as -I $(ASM_SRC) $< -o $@
 
 $(BUILD)%.o: $(C_SRC)%.c $(BUILD)
-	$(ARMGNU)-gcc-5.4.0 -mfloat-abi=hard -I $(HEADERS) -c $< -o $@
+	$(ARMGNU)-gcc-5.4.1 -mfloat-abi=hard -I$(HEADERS) -c $< -o $@
 
 $(BUILD):
 	mkdir $@

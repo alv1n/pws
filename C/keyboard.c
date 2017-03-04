@@ -1,5 +1,6 @@
 #include "stdint.h"
 #include "keyboard.h"
+#include "asm.h"
 
 /*
 static const uint8_t KeysNormal[104] = 

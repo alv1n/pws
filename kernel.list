@@ -386,7 +386,7 @@ Disassembly of section .text:
     92f0:	e0632001 	rsb	r2, r3, r1
     92f4:	e1a03002 	mov	r3, r2
     92f8:	e50b334c 	str	r3, [fp, #-844]	; 0xfffffcb4
-    92fc:	e24b3fd3 	sub	r3, fp, #844	; 0x34c
+    92fc:	e51b334c 	ldr	r3, [fp, #-844]	; 0xfffffcb4
     9300:	e1a00003 	mov	r0, r3
     9304:	eb0002ad 	bl	9dc0 <Random>
     9308:	e1a03000 	mov	r3, r0

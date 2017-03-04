@@ -2,9 +2,9 @@
 #define PRINT_H
 
 /* Prints a character and automatically wraps around */
-void PrintCharacter(unsigned char ch);
+extern void PrintCharacter(unsigned char ch);
 
 /* Prints a number to the screen */
-void PrintNumber(int num, unsigned int base);
+extern void PrintNumber(int num, unsigned int base);
 
 #endif

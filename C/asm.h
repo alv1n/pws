@@ -32,6 +32,8 @@ extern void SetGraphicsAddress(struct FrameBufferDescription *buffer);
 extern void DrawCharacter(char character, uint32_t x, uint32_t y);
 
 //text.s
+extern int CharCount(const char *string);
+
 extern int DrawStringz(char *string, uint32_t x, uint32_t y);
 
 extern int SignedString(int num, char *dest, int base);
