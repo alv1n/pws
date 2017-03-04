@@ -29,24 +29,8 @@ void snake(void)
     while(!collision)
     {
         //Movement
-        key_pressed = KeyboardGetChar();
-        last_key = key_pressed;
-        if(key_pressed == 'd')
-        {
-            for(int i = 0;pos.pos_x[i] != 0;i++)
-            {
-                pos.pos_x[i] += 1;
-            }
-
-        }
-        if(key_pressed == 'w')
-        {
-            for(int i=0;pos.pos_y[i] != 0;i++)
-            {
-                pos.pos_y[i] -= 1;
-            }
-        }
-
+        char direction = 
+    
         //Test if food is eaten
         if(pos.pos_x[0] == pos.nom_x && pos.pos_y[0] == pos.nom_y)
         {

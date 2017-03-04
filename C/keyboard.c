@@ -1,14 +1,7 @@
 #include "stdint.h"
 #include "keyboard.h"
-//
 
-unsigned char modifiers;
-unsigned char keys[6];
-int modified;
-
-unsigned char keys_old[6];
-
-
+/*
 static const uint8_t KeysNormal[104] = 
 {
      0x0, 0x0, 0x0, 0x0, 'a', 'b', 'c', 'd',
@@ -41,16 +34,24 @@ static const uint8_t KeysShift[104] =
      0x0, 0x0, 0x0, 0x0, '/', '*', '-', '+',
      '\n', '1', '2', '3', '4', '5', '6', '7',
      '8', '9', '0', '.', '|', 0x0, 0x0, '='
-};
-int x = 0;
-int y = 16;
+}; */
+char lastPressed[1000];
+int counter = 0;
+int new_input = 0;
+
 void KeyboardHandler(const char *pString)
 {
-        DrawStringz(pString,x,y);
-        x+=8;
-        if(x>1024)
-        {
-            x=0;
-            y+=16;
-        }
+    new_input = 1;
+    static int i = 0;
+    counter = counter + i;
+    if(counter + 6>999)
+    {
+        counter = 0;
+    }
+
+    for(i = 0; i < CharCount(pString); i++)
+    {
+        lastPressed[counter+i] = pString[i];
+    }
+    lastPressed[counter+i] = '\0';
 }

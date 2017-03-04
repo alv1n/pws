@@ -2,16 +2,18 @@
  * r0: null-terminated string.
  * r1: x position
  * r2: y position
+ * returns length of string
  */
 .globl DrawStringz
 DrawStringz:
-	push {r4 - r6, lr}
+	push {r4 - r7, lr}
 
 	mov r4, r0
 	mov r5, r1
 	mov r6, r2
 
 	bl CharCount
+    mov r7, r0
 
 	mov r1, r0
 	mov r0, r4
@@ -19,7 +21,8 @@ DrawStringz:
 	mov r3, r6
 	bl DrawString
 
-	pop {r4 - r6, pc}
+    mov r0, r7
+	pop {r4 - r7, pc}
 
 /* r0: string address
  * returns number of characters in a null-terminated string
