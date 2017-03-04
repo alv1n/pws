@@ -2,8 +2,8 @@
 #include "keyboard.h"
 struct position
 {
-    int x[100];
-    int y[100];
+    int pos_x[100];
+    int pos_y[100];
     int nom_x;
     int nom_y;
 }position;
@@ -32,7 +32,7 @@ void snake(void)
         if(new_input)
         {
             new_input = 0;
-            key_pressed = (lastPressed+counter)[0];
+            key_pressed = (last_pressed+counter)[0];
             if(key_pressed != 'a' || key_pressed != 's' || key_pressed != 'd' || key_pressed != 'w')
             {
                 key_pressed = last_key;
@@ -48,10 +48,7 @@ void snake(void)
             new_head_x = pos.x[0] -1;
             for(int i = 0;pos.x[i] != 0; i++)
             {
-                if(i != 0)
-                {
-                    pos.x[i+1] = pos.x[i];
-                }
+                  
             }
         }
 
