@@ -1,6 +1,6 @@
 #include "stdint.h"
 #include "keyboard.h"
-//
+
 
 unsigned char modifiers;
 unsigned char keys[6];
@@ -42,15 +42,65 @@ static const uint8_t KeysShift[104] =
      '\n', '1', '2', '3', '4', '5', '6', '7',
      '8', '9', '0', '.', '|', 0x0, 0x0, '='
 };
-int x = 0;
-int y = 16;
-void func(const unsigned char *pString)
+
+//Saves keys to variables (To be passed as function ptr)
+void KeyPressedHandler(uint8_t ucModifiers, const unsigned char RawKeys[6])
 {
-        DrawStringz(pString,x,y);
-        x+=8;
-        if(x>1024)
+    modifiers = ucModifiers;
+    for(int i = 0;i <6;i++)
+    {
+        //keys_old[i] = keys[i];
+        keys[i] = RawKeys[i];
+    }
+    for(int i=0;i<6;i++)
+    {
+        if(KeyWasDown(keys_old[i]) == 0)
         {
-            x=0;
-            y+=16;
+            modified = 1;
         }
+    }
+    
+    return;
+}
+
+//Checks if scan was in keys[]
+int KeyWasDown(uint16_t scanCode)
+{
+    for(int i=0;i<6;i++)
+    {
+        if(scanCode==keys[i])
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+unsigned char KeyboardGetChar()
+{
+    unsigned char to_return = 0;
+    for(int i=0;i<6;i++)
+    {
+        if(KeyWasDown(keys[i]) != 1)
+        {
+            if(keys[i] ==  0)
+            {
+                return 0;
+            }
+            else if(keys[i] <= 103)
+            {
+                 int *modif = &KeysNormal[0]; //Pointer to lookup table
+                 if( (modifiers | 0b00100010) > 0) //Check if either shift is pressed
+                 {
+                    modif = KeysShift;
+                 }
+                 if(modif[ keys[i] ] != 0)
+                 {
+                    to_return = modif[ keys[i] ];
+                 }
+            }
+        }
+        
+    }
+    return to_return;
 }

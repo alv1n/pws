@@ -12,6 +12,7 @@
 .globl timerWait
 timerWait:
 	// Save argument in r3
+    push {r3}
 	mov r3, r0
 
 	// Load counter value
@@ -27,4 +28,5 @@ timerWait:
 		bhi timerWaitLoop$
 
 	// Return 
+    pop {r3}
 	mov pc, lr
