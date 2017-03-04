@@ -135,6 +135,5 @@ void PrintFormat(const char *string, ...)
 	}
 
 	va_end(ap);
-	return;
 }
 
