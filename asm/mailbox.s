@@ -32,6 +32,7 @@ MailboxWrite:
 
 /* MailboxRead: reads message from specified channel into r0
  * r0: channel to read from, 0 - 15
+ * Returns 0 on success
  */
 .globl MailboxRead
 MailboxRead:

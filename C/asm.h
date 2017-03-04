@@ -17,6 +17,9 @@ extern struct FrameBufferDescription{
 //Random.s
 extern uint32_t Random(int seed); 
 
+//Framebuffer.s
+extern struct FrameBufferDescription* InitialiseFrameBuffer(int width, int height, int bitDepth);
+
 //Drawing.s
 extern uint16_t *foreColour;
 
@@ -32,9 +35,6 @@ extern void DrawCharacter(char character, uint32_t x, uint32_t y);
 extern void DrawStringz(char *string, uint32_t x, uint32_t y);
 
 extern int SignedString(int num, char *dest, int base);
-
-//Framebuffer.s
-extern struct FrameBufferDescription* InitialiseFrameBuffer(int width, int height, int bitDepth);
 
 //GPIO.s
 extern void SetGpioFunction(int pin, int function);
