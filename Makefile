@@ -29,7 +29,7 @@ MAP = kernel.map
 LINKER = kernel.ld
 
 #CFLAGS
-CFLAGS += -W
+CFLAGS += -Wall
 
 # The names of all object files that must be generated. Deduced from the 
 # assembly code files in source.
