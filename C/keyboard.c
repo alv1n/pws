@@ -88,7 +88,7 @@ unsigned char KeyboardGetChar()
             }
             if(keys[i] <= 103)
             {
-                 int *modif = KeysNormal; //Pointer to lookup table
+                 int *modif = &KeysNormal[0]; //Pointer to lookup table
                  if( (modifiers | 0b00100010) > 0) //Check if either shift is pressed
                  {
                     modif = KeysShift;
