@@ -7,9 +7,7 @@
 #include "programs.h"
 #include "graphics.h"
 
-//Modifiers and last 6 keys pressed
-unsigned char modifiers;
-unsigned char keys[6];
+
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
     USPiEnvInitialize();
@@ -17,7 +15,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 
     USPiKeyboardAvailable();
     
-    USPiKeyboardRegisterKeyPressedHandler(func);
+    USPiKeyboardRegisterKeyPressedHandler(KeyboardHandler);
 
     struct FrameBufferDescription* frameRet = InitialiseFrameBuffer(1024, 768, 16);
     //If Initialized correctly enable LED 

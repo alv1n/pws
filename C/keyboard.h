@@ -1,8 +1,6 @@
 
-extern unsigned char modifiers;
-extern unsigned char keys[6];
 
-void func(const unsigned char *pString);
+void KeyboardHandler(const char *pString);
     
 extern int is_modified;
 

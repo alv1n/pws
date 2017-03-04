@@ -44,7 +44,7 @@ static const uint8_t KeysShift[104] =
 };
 int x = 0;
 int y = 16;
-void func(const unsigned char *pString)
+void KeyboardHandler(const char *pString)
 {
         DrawStringz(pString,x,y);
         x+=8;
