@@ -33,23 +33,14 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     
     int x = 0;
     int y = 16;
+    
     while(1)
-    {   
-        if(new_input)
-        {
-            new_input = 0;
-            x+= 8*DrawStringz(lastPressed+counter,x,y);
-            if(x>1024)
-            {
-                x = 0;
-                y+=16;
-                if(y > 768)
-                {
-                    y = 0;
-                }
-                
-            }
-        }
+    {
+    	if (new_input)
+	{
+		new_input = 0;
+		PrintString(lastPressed + counter);
+	}
     }
 }
 

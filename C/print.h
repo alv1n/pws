@@ -4,11 +4,8 @@
 /* Prints a character and automatically wraps around */
 extern void PrintCharacter(unsigned char ch);
 
-/* Prints a number to the screen */
-extern void PrintNumber(int num, unsigned base);
-
-/* Prints an unsigned number to the screen */
-extern void PrintUnsigned(unsigned num, unsigned base);
+/* Prints a string to the screen */
+extern void PrintString(const char *string);
 
 /* Prints a format string. Format Arguments are:
  * %% -> %
