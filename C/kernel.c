@@ -6,6 +6,7 @@
 #include "keyboard.h"
 #include "programs.h"
 #include "graphics.h"
+#include "print.h"
 
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
@@ -26,8 +27,9 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
 
     SetGraphicsAddress(frameRet);
+
+    PrintNumber(89, 10);
     
-    DrawStringz("Screen turned on succesfully!",0,0);
     int x = 0;
     int y = 16;
     while(1)
