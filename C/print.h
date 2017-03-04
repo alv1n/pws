@@ -5,6 +5,21 @@
 extern void PrintCharacter(unsigned char ch);
 
 /* Prints a number to the screen */
-extern void PrintNumber(int num, unsigned int base);
+extern void PrintNumber(int num, unsigned base);
+
+/* Prints an unsigned number to the screen */
+extern void PrintUnsigned(unsigned num, unsigned base);
+
+/* Prints a format string. Format Arguments are:
+ * %% -> %
+ * %c -> char
+ * %b -> base 2 int
+ * %o -> base 8 int
+ * %u -> base 10 unsigned
+ * %d or %i -> base 10 int
+ * %x -> base 16 int
+ * %p -> base 16 unsigned (for pointers)
+ */
+extern void PrintFormat(const char *string, ...);
 
 #endif
