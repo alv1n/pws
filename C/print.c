@@ -20,7 +20,6 @@ void PrintCharacter(char ch)
 	if (ch > 31 && ch < 127)
 	{
 		DrawCharacter(ch, x_pos * 8, y_pos * 16);
-
 		
 		x_pos++;
 		if (x_pos >= CH_WIDTH) 
