@@ -17,13 +17,16 @@ void Cmd(void)
 	{
 		i = 0;
 
-		PrintString(">>>");
+		PrintString(">>> ");
 		while ((ch = WaitChar()) != '\n')
 		{
 			if (ch == 27)		{
 				i--;
 				continue;
-			}
+			} 
+			else if (ch == ' ')
+				continue;
+
 			buf[i++] = ch;
 			PrintCharacter(ch);
 		}
