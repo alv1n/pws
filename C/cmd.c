@@ -11,14 +11,14 @@ static char buf[CH_WIDTH * CH_HEIGHT];
 void Cmd(void) 
 {
 	char ch;
-	int i;
+	int i, lncnt = 0;
 
 	for (;;)
 	{
 		i = 0;
 
-		PrintString(">>> ");
-		while ((ch = WaitChar()) != '\n')
+		PrintFormat("[0x%x] >>> ", lncnt++);
+		while ((ch = WaitChar()) != '\n' && i < sizeof(buf) -1)
 		{
 			if (ch == 27)		{
 				i--;
@@ -39,6 +39,7 @@ void Cmd(void)
 		}
 		else if (!StringCompare("notepad", buf))
 		{
+			PrintClear();
 			Notepad();
 		}
 		else if (!StringCompare("brainfuck", buf))
@@ -49,10 +50,18 @@ void Cmd(void)
         {
             Paint();
         }
+		else if (!StringCompare("clear", buf))
+		{
+			PrintClear();
+		}
+		else if (!StringCompare("help", buf))
+		{
+			// defined in programs.h
+			PRINT_CMDS(paint, snake, notepad, brainfuck, clear, help);
+		}
 		else
 		{
 			PrintString("Ken ik niet lol\n");
 		}			
-			
 	}
 }

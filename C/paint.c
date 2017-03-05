@@ -14,8 +14,8 @@ uint16_t colours[9] =
     0x1304, 0x5F23, 0xA23B,\
 };
 
-uint8_t x = 100;
-uint8_t y = 100;
+int x = 100;
+int y = 100;
 int col = 0xFFFF;
 uint8_t size = 4;
 
@@ -44,6 +44,7 @@ void Paint()
                 break;
             case ']':
                 col += 0x10;
+                break;
             case 'w':
                 if(y < 0)
                 {

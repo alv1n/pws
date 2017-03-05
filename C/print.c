@@ -125,6 +125,11 @@ static void PrintNumber(int num, unsigned base)
 		num = -num;
 		PrintCharacter('-');
 	}
+	else if (num == 0)
+	{
+		PrintCharacter('0');
+		return;
+	}
 
 	PrintUnsigned(num, base);
 }
@@ -148,7 +153,7 @@ void PrintFormat(const char *string, ...)
 				case 'c' : PrintCharacter((char) va_arg(ap, int));
 				case 'b' : PrintNumber(va_arg(ap, int), 2); break;
 				case 'o' : PrintNumber(va_arg(ap, int), 8); break;
-				case 'u' : PrintUnsigned(va_arg(ap, unsigned), 10); break;
+				case 'u' : 
 				case 'd' :
 				case 'i' : PrintNumber(va_arg(ap, int), 10); break;
 				case 'x' : PrintNumber(va_arg(ap, int), 16); break;
