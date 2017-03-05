@@ -2,6 +2,8 @@
 #include "keyboard.h"
 #include "sleep.h"
 #include "scan.h"
+#include "print.h"
+
 struct position
 {
     int x[100];
