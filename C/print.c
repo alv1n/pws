@@ -1,6 +1,7 @@
 #include <stdint.h>
 //#include "../include/uspienv/stdarg.h"
 #include <stdarg.h>
+#include <string.h>
 #include "asm.h"
 #include "print.h"
 
@@ -130,7 +131,6 @@ void PrintFormat(const char *string, ...)
 	}
 
 	va_end(ap);
-	return;
 }
 
 void PrintClear(void)
