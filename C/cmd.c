@@ -20,14 +20,15 @@ void Cmd(void)
 		PrintFormat("[0x%x] >>> ", lncnt++);
 		while ((ch = WaitChar()) != '\n' && i < sizeof(buf) -1)
 		{
-			if (ch == 27)		{
+			if (ch == 127) {
 				i--;
-				continue;
+
 			} 
 			else if (ch == ' ')
 				continue;
+			else
+				buf[i++] = ch;
 
-			buf[i++] = ch;
 			PrintCharacter(ch);
 		}
 		PrintCharacter('\n');
