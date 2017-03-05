@@ -39,6 +39,11 @@ void Notepad()
             }
             else if(mode == NORMAL)
             {
+                if(c == 'e')
+                {
+                    PrintClear();
+                    return;
+                }
                 NormalMode(c);
             }
             else
@@ -48,10 +53,6 @@ void Notepad()
             DrawCursor();
             PrintClear();
             PrintString(buf);
-            DrawCharacter(under_cursor,0,400);
-            char cur[4];
-            UnsignedString(cursor,cur,10);
-            DrawStringz(cur,0,416);
 
         }
     }
@@ -98,12 +99,6 @@ void NormalMode(char c)
         buf[cursor+1] = under_cursor;
         under_cursor = buf[cursor];
         break;
-    case 'k':
-        break;
-
-    case 'j':
-        break;
-
     case 'l':
         if(buf[cursor] != '\0')
         {
@@ -111,15 +106,6 @@ void NormalMode(char c)
             buf[cursor++] = under_cursor;
             under_cursor = buf[cursor];
         } break;
-
-    case 'x': //Delete
-        MemoryMove(buf+cursor,buf+cursor+1,CharCount(buf+cursor+1)+1);
-        break;
-
-    case 127: //Backspace
-        MemoryMove(buf+cursor-1,buf+cursor,CharCount(buf+cursor));
-        cursor--;
-        break; 
 
     default:
         break;
