@@ -6,6 +6,9 @@ extern void snake();
 
 extern void brainfuck(void);
 
+
+extern void Paint(void);
+
 extern void Notepad(void);
 
 
