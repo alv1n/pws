@@ -21,6 +21,10 @@ void brainfuck()
     PrintClear();
     int i = 0;
     int loc = 500;
+    if(new_input && GetInput() == 127) 
+    {
+        return;
+    }
     while(buf_bf[i] > 0)
     {
         switch(buf_bf[i])
