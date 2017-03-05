@@ -62,7 +62,7 @@ void Cmd(void)
 		}
 		else
 		{
-			PrintString("Ken ik niet lol\n");
+			PrintString("Syntax Error!\n");
 		}			
 	}
 }
