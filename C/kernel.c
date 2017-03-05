@@ -9,7 +9,7 @@
 #include "graphics.h"
 #include "print.h"
 #include "sleep.h"
-#include "notepad.h"
+#include "programs.h"
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
@@ -38,6 +38,11 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 	}
     }
     */
-    Notepad();
+    brainfuck();
+    while(1)
+    {
+
+    }
 }
+
 

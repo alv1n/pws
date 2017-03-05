@@ -23,7 +23,6 @@ void DrawCursor(void);
 
 static char under_cursor= 0;
 
-
 void Notepad()
 {
     char c;
