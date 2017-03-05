@@ -8,7 +8,7 @@
 #include "programs.h"
 #include "graphics.h"
 #include "print.h"
-
+#include "sleep.h"
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
@@ -30,6 +30,8 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     SetGraphicsAddress(frameRet);
 
     PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
+    Sleep(1000000);
+    PrintClear();
     
     int x = 0;
     int y = 16;

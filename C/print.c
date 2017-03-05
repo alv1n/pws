@@ -1,4 +1,5 @@
 #include <stdint.h>
+//#include "../include/uspienv/stdarg.h"
 #include <stdarg.h>
 #include <string.h>
 #include "asm.h"
@@ -14,7 +15,7 @@ static int y_pos = 0;
 
 static void PrintNumber(int num, unsigned base);
 
-void PrintCharacter(unsigned char ch)
+void PrintCharacter(char ch)
 {
 	if (ch > 31 && ch < 127)
 	{
@@ -27,13 +28,11 @@ void PrintCharacter(unsigned char ch)
 			y_pos++;
 			x_pos = 0;
 	
-			if (y_pos >= CH_HEIGHT)
-			{
-				x_pos = 0;
-				y_pos = 0;
-			}
 		}
-	
+        if (y_pos >= CH_HEIGHT)
+        {
+            PrintClear();
+        }
 	}
 	else 
 	{
@@ -138,3 +137,18 @@ void PrintFormat(const char *string, ...)
 	va_end(ap);
 }
 
+void PrintClear(void)
+{
+    SetForeColour(0x0);
+    for(int i = 0;i < CH_WIDTH; i++)
+    {
+        for(int j = 0;j < CH_HEIGHT; j++)
+        {
+            DrawCharacter(127,8*i,16*j);
+        }
+    }
+    x_pos = 0;
+    y_pos = 0;
+    SetForeColour(0xFFFF);
+    return;
+}
