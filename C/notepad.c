@@ -8,14 +8,14 @@
 #define INSERT 0
 #define NORMAL 1
 #define INSERT_COL 0xF800 //RED
-#define NORMAL_COL 0x001F //NOT RED
+#define NORMAL_COL 0x001F //BLUE
 
 #define CURSOR_I -1
 #define CURSOR_N -2
 
 static char buf[CH_WIDTH * CH_HEIGHT];
-unsigned int cursor = 0;
-int mode = NORMAL;
+int cursor = 0;
+int mode = INSERT;
 
 void NormalMode(char c);
 void InsertMode(char c);
@@ -30,12 +30,11 @@ void Notepad()
         {
             new_input = 0;
             c = GetChar();
-            if(c == ESC)
+            if(c == '\\')
             {
-                mode = mode ^ 1; 
+                mode = mode ? INSERT : NORMAL;
             }
-
-            if(mode == NORMAL)
+            else if(mode == NORMAL)
             {
                 NormalMode(c);
             }
@@ -43,13 +42,10 @@ void Notepad()
             {
                 InsertMode(c);
             }
+            DrawCursor();
+            PrintClear();
+            PrintString(buf);
         }
-
-        DrawCursor();
-
-        // buf is ready, update screen
-        ClearScreen();
-        PrintString(buf);
     }
 }
 
@@ -76,17 +72,20 @@ void InsertMode(char c)
         buf[cursor] = c;
         cursor++;
     }
+    return;
 }
 
 
 void NormalMode(char c)
 {
+    static char under_cursor= 0;
     switch(c)
     {
     case 'h':
-        cursor = (cursor - 1) < 0 ? 0 : (cursor - 1);
+        cursor = (cursor - 1) <= 0 ? 0 : (cursor - 1);
+        //buf[cursor] = under_cursor;
+        //under_cursor = buf[cursor-1];
         break;
-              
     case 'k':
         break;
 
@@ -96,9 +95,11 @@ void NormalMode(char c)
     case 'l':
         if(buf[cursor+1] != '\0')
         {
+            // 'elegantie'
+            //buf[cursor++] = under_cursor;
+            //under_cursor = buf[cursor];
             cursor++;
-        }
-        break;
+        } break;
 
     case 'x': //Delete
         MemoryMove(buf+cursor,buf+cursor+1,CharCount(buf+cursor+1)+1);

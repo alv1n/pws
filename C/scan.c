@@ -3,5 +3,5 @@ int lastPressedPos;
 
 char GetChar()
 {
-    return lastPressed[lastPressedPos];
+    return lastPressed[lastPressedPos-1];
 }

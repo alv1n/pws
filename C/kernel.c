@@ -28,8 +28,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
     SetGraphicsAddress(frameRet);
     //Enter code after this line:
-    PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
-    /*
+    /*PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
     while(1)
     {
     	if (new_input)
