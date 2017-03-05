@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdarg.h>
+#include <string.h>
 #include "asm.h"
 #include "print.h"
 
