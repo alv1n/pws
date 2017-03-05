@@ -5,6 +5,12 @@
 #include "asm.h"
 #include "print.h"
 
+#define CURSOR_I -1
+#define CURSOR_N -2
+
+#define INSERT_COL 0xF800 //RED
+#define NORMAL_COL 0x001F //NOT RED
+
 static int prev_x_pos[CH_HEIGHT];
 static int x_pos = 0;
 static int y_pos = 0;
@@ -29,7 +35,7 @@ void PrintCharacter(char ch)
             PrintClear();
         }
 	}
-	else 
+	else if(ch >= 0)
 	{
 		int tmp_x;
 
@@ -57,6 +63,22 @@ void PrintCharacter(char ch)
 				break;
 		}
 	}
+    else //Special cases for cursors
+    {
+        switch(ch)
+        {
+            case CURSOR_I:
+                SetForeColour(INSERT_COL);
+                break;
+            case CURSOR_N:
+                SetForeColour(NORMAL_COL);
+                break;
+            default:
+                break;
+        }
+        DrawCharacter(127,x_pos*8,y_pos*16);
+        SetForeColour(0xFFFF);
+    }
 
 }
 

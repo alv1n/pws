@@ -29,7 +29,7 @@ MAP = kernel.map
 LINKER = kernel.ld
 
 #CFLAGS
-CFLAGS += -Wall
+CFLAGS = -Wall -mfloat-abi=hard -fsigned-char
 
 # The names of all object files that must be generated. Deduced from the 
 # assembly code files in source.
@@ -71,7 +71,7 @@ $(BUILD)%.o: $(ASM_SRC)%.s $(BUILD)
 	$(ARMGNU)-as -I $(ASM_SRC) $< -o $@
 
 $(BUILD)%.o: $(C_SRC)%.c $(BUILD)
-	$(ARMGNU)-gcc-5.4.1 -mfloat-abi=hard -I$(HEADERS) -c $< -o $@
+	$(ARMGNU)-gcc-5.4.1 $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
 $(BUILD):
 	mkdir $@

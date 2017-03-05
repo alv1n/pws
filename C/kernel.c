@@ -9,6 +9,7 @@
 #include "graphics.h"
 #include "print.h"
 #include "sleep.h"
+#include "notepad.h"
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
@@ -28,7 +29,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     SetGraphicsAddress(frameRet);
     //Enter code after this line:
     PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
-    
+    /*
     while(1)
     {
     	if (new_input)
@@ -37,5 +38,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 		PrintString(lastPressed + counter);
 	}
     }
+    */
+    Notepad();
 }
 

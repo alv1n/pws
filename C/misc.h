@@ -1,7 +1,7 @@
 #ifndef MISC_H
 #define MISC_H
 
-extern void MemoryMove(void *src, void *dst, int size);
+extern void MemoryMove(char *src, char *dst, int size);
 
 #endif 
 

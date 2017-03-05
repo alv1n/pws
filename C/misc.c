@@ -1,4 +1,4 @@
-void MemoryMove(void *src, void *dst, int size)
+void MemoryMove(char *src, char *dst, int size)
 {
 	int i;
 
@@ -14,7 +14,7 @@ void MemoryMove(void *src, void *dst, int size)
 	else // dst > src
 	{
 		for (i = size - 1; i >= 0; i--)
-			dst[i] = src[i]
+			dst[i] = src[i];
 	}
 }
 	
