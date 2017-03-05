@@ -158,6 +158,7 @@ void PrintFormat(const char *string, ...)
 				case 'i' : PrintNumber(va_arg(ap, int), 10); break;
 				case 'x' : PrintNumber(va_arg(ap, int), 16); break;
 				case 'p' : PrintUnsigned(va_arg(ap, unsigned), 16); break;
+				case 's' : PrintString(va_arg(ap, char *)); break;
 				default: break;
 			}
 		}

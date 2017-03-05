@@ -28,6 +28,7 @@ static int IsNumber(int ch)
 	return (ch >= 48 && ch <= 57);
 
 }
+
 unsigned ReadUnsigned(void)
 {
 	int ret_val = 0;

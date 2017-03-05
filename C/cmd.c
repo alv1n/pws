@@ -20,10 +20,8 @@ void Cmd(void)
 		PrintFormat("[0x%x] >>> ", lncnt++);
 		while ((ch = WaitChar()) != '\n' && i < sizeof(buf_cmd) -1)
 		{
-			if (ch == 127) {
+			if (ch == 127) 
 				i--;
-
-			} 
 			else if (ch == ' ')
 				continue;
 			else

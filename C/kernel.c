@@ -11,6 +11,7 @@
 #include "sleep.h"
 #include "programs.h"
 #include "cmd.h"
+#include "calculator.h"
 
 struct FrameBufferDescription *frameRet;
 
@@ -42,7 +43,8 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
     */
 
-    Cmd();
+    Calculator();
+
 }
 
 
