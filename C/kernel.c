@@ -12,6 +12,8 @@
 #include "programs.h"
 #include "cmd.h"
 
+struct FrameBufferDescription *frameRet;
+
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
 {
     //Initalise driver
@@ -20,7 +22,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     USPiKeyboardAvailable();
     USPiKeyboardRegisterKeyPressedHandler(KeyboardHandler);
 
-    struct FrameBufferDescription* frameRet = InitialiseFrameBuffer(1024, 768, 16);
+    frameRet = InitialiseFrameBuffer(1024, 768, 16);
     //If Initialised correctly enable LED 
     if (frameRet != 0)
     {

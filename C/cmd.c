@@ -45,6 +45,10 @@ void Cmd(void)
 		{
 			brainfuck();
 		}
+        else if (!StringCompare("paint",buf))
+        {
+            Paint();
+        }
 		else
 		{
 			PrintString("Ken ik niet lol\n");

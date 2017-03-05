@@ -14,10 +14,10 @@ uint16_t colours[9] =
     0x1304, 0x5F23, 0xA23B,\
 };
 
-int x = 100;
-int y = 100;
+uint8_t x = 100;
+uint8_t y = 100;
 int col = 0xFFFF;
-int size = 4;
+uint8_t size = 4;
 
 void DrawPoint();
 
@@ -26,13 +26,8 @@ void Paint()
     PrintClear();
     while(1)
     {
-        while(!get_input)
-        {
-            SetForeColour(x ^ 0xFE12);
-            DrawPixel(x,y);
-        }
+        char c = WaitChar();
         get_input = 0;
-        char c = GetChar();
         switch(c)
         {
             case ' ':
@@ -44,31 +39,41 @@ void Paint()
             case '-':
                 size-=4;
                 break;
+            case '[':
+                col -= 0x10;
+                break;
+            case ']':
+                col += 0x10;
             case 'w':
-                if(y - (size >> 1) > 0)
+                if(y < 0)
                 {
-                    y -= (size >> 1);
+                    y = 768;
                 }
+                y -= size;
                 break;
             case 's':
-                if(y + (size >> 1) < 768)
+                if(y > 768)
                 {
-                    y += (size >> 1);
+                    y = 0;
                 }
+                y += size;
                 break;
             case 'a':
-                if(x - (size >> 1) > 0)
+                if(x < 0)
                 {
-                    x -= (size >> 1);
+                    x = 1024;
                 }
+                x -= size;
                 break;
             case 'd':
-                if(x + (size >> 1) < 1024)
+                if(x > 1024)
                 {
-                    x += (size >> 1);
+                    x = 0;
                 }
+                x +=size;
                 break;
             case 'q':
+                PrintClear();
                 return;
             default:
                 break;
@@ -87,7 +92,7 @@ void DrawPoint()
         for(int j = 0; j < size; j++)
         {
             SetForeColour(col);
-            DrawPixel(x,y);
+            DrawPixel(x+i,y+j);
         }
     }
 }

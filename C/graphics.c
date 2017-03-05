@@ -20,3 +20,9 @@ void ClearScreen()
     }
     return;
 }
+
+int ReadPixel(int x,int y) //Read a pixel colour from the screen
+{
+    uint32_t *frameAddr = (frameRet->pointer + (x + y*768)*2);
+    return *frameAddr; 
+}

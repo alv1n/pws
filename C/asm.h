@@ -3,7 +3,7 @@
 
 #include "stdint.h"
 #include "graphics.h"
-
+//Kernel.c
 extern struct FrameBufferDescription{
     uint32_t height;
     uint32_t width;
@@ -16,6 +16,8 @@ extern struct FrameBufferDescription{
     uint32_t *pointer;
     uint32_t size;
 } FrameBufferDescription;
+
+struct FrameBufferDescription *frameRet;
 
 //Random.s
 extern uint32_t Random(int seed); 
