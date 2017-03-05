@@ -33,11 +33,7 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     
     int x = 0;
     int y = 16;
-<<<<<<< HEAD
-    snake();
-=======
     
->>>>>>> 45ee799370e3388bb7dff4645d2500023a3c76d0
     while(1)
     {
     	if (new_input)

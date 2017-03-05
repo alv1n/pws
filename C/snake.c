@@ -17,7 +17,6 @@ void snake(void)
     struct position pos;
     pos.nom_x = Random(23) % 96;
     pos.nom_y = Random(pos.nom_x) % 64;
-<<<<<<< HEAD
     
     for(int i=0;i<100;i++)
     {
@@ -28,13 +27,6 @@ void snake(void)
     pos.y[0] = 5;
     pos.x[1] = 4;
     pos.y[1] = 5;
-=======
-    pos.x[0] = (Random(pos.nom_y) + 3) % 96 ;
-    pos.y[0] = Random(pos.x[0]) % 64 ;
-
-    pos.x[1] = pos.x[0] - 1;
-    pos.y[1] = pos.y[0] - 1;
->>>>>>> 45ee799370e3388bb7dff4645d2500023a3c76d0
 
     char last_key = 'd';
     char key_pressed = 'd';
