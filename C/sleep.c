@@ -1,4 +1,4 @@
-void sleep(int mcsec)
+void Sleep(int mcsec)
 {
     int timer_start = *(int *)0x20003000;
     int timer_current = *(int *)0x20003000;

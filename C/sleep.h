@@ -1,1 +1,1 @@
-void sleep(int);
+void Sleep(int);

@@ -47,6 +47,7 @@ HEADERS := include/
 all: clean $(TARGET) $(LIST) 
 	cp kernel.img /media/$(USER)/boot/kernel.img
 	umount /media/$(USER)/boot/
+	umount /media/$(USER)/0aed*/
 
 # Rule to remake everything. Does not include clean.
 rebuild: all

@@ -119,7 +119,7 @@ void snake(void)
             }
         }
 
-        sleep(1000000);
+        Sleep(1000000);
     }
 
 }

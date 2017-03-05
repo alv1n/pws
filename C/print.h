@@ -2,7 +2,7 @@
 #define PRINT_H
 
 /* Prints a character and automatically wraps around */
-extern void PrintCharacter(unsigned char ch);
+extern void PrintCharacter(char ch);
 
 /* Prints a string to the screen */
 extern void PrintString(const char *string);
@@ -18,5 +18,7 @@ extern void PrintString(const char *string);
  * %p -> base 16 unsigned (for pointers)
  */
 extern void PrintFormat(const char *string, ...);
+
+extern void PrintClear(void);
 
 #endif
