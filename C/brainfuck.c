@@ -3,21 +3,25 @@
 #include "print.h"
 #include "scan.h"
 #include "sleep.h"
+#include "programs.h"
 
-char buf_bf[1000];
+#define CH_WIDTH 128
+#define CH_HEIGHT 48
+
+#define buf_bf buf
+
+char buf[CH_WIDTH * CH_HEIGHT];
+
+//char buf_bf[1000];
 
 uint8_t reel[1000];
 
 void brainfuck() 
 {
-    for(int i = 0; i < 1000; i++)
-    {
-        reel[i] = 0;
-    }
     PrintClear();
     int i = 0;
     int loc = 500;
-    while(buf_bf[i] != 0)
+    while(buf_bf[i] > 0)
     {
         switch(buf_bf[i])
         {
@@ -79,6 +83,10 @@ void brainfuck()
         //Shows code being executed at the bottom
         for(int x = 0; x < 40 || buf_bf[x+i] == '\0'; x++)
         {
+            if(buf_bf[x+i] <= 0)
+            {
+                break;
+            }
             SetForeColour(0);
             DrawCharacter(127,x*8,752);
             SetForeColour(0xFFFF);

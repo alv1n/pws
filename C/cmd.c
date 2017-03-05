@@ -6,7 +6,7 @@
 #include "programs.h"
 
 // number of chars on a screen
-static char buf[CH_WIDTH * CH_HEIGHT];
+static char buf_cmd[CH_WIDTH * CH_HEIGHT];
 
 void Cmd(void) 
 {
@@ -18,7 +18,7 @@ void Cmd(void)
 		i = 0;
 
 		PrintFormat("[0x%x] >>> ", lncnt++);
-		while ((ch = WaitChar()) != '\n' && i < sizeof(buf) -1)
+		while ((ch = WaitChar()) != '\n' && i < sizeof(buf_cmd) -1)
 		{
 			if (ch == 127) {
 				i--;
@@ -27,35 +27,35 @@ void Cmd(void)
 			else if (ch == ' ')
 				continue;
 			else
-				buf[i++] = ch;
+				buf_cmd[i++] = ch;
 
 			PrintCharacter(ch);
 		}
 		PrintCharacter('\n');
-		buf[i] = '\0';
+		buf_cmd[i] = '\0';
 
-		if (!StringCompare("snake", buf))
+		if (!StringCompare("snake", buf_cmd))
 		{
 			snake();
 		}
-		else if (!StringCompare("notepad", buf))
+		else if (!StringCompare("notepad", buf_cmd))
 		{
 			PrintClear();
 			Notepad();
 		}
-		else if (!StringCompare("brainfuck", buf))
+		else if (!StringCompare("brainfuck", buf_cmd))
 		{
 			brainfuck();
 		}
-        else if (!StringCompare("paint",buf))
+        else if (!StringCompare("paint",buf_cmd))
         {
             Paint();
         }
-		else if (!StringCompare("clear", buf))
+		else if (!StringCompare("clear", buf_cmd))
 		{
 			PrintClear();
 		}
-		else if (!StringCompare("help", buf))
+		else if (!StringCompare("help", buf_cmd))
 		{
 			// defined in programs.h
 			PRINT_CMDS(paint, snake, notepad, brainfuck, clear, help);

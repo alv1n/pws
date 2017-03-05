@@ -3,6 +3,7 @@
 #include "keyboard.h"
 #include "scan.h"
 #include "misc.h"
+#include "programs.h"
 
 #define ESC 27
 #define INSERT 0
@@ -13,7 +14,7 @@
 #define CURSOR_I -1
 #define CURSOR_N -2
 
-static char buf[CH_WIDTH * CH_HEIGHT];
+char buf[CH_WIDTH * CH_HEIGHT];
 int cursor = 0;
 int mode = INSERT;
 
@@ -38,7 +39,7 @@ void Notepad()
             }
             else if(mode == NORMAL)
             {
-                if(c == 'e')
+                if(c == 'q')
                 {
                     PrintClear();
                     return;
