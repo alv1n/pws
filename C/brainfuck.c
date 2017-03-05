@@ -4,7 +4,7 @@
 #include "scan.h"
 #include "sleep.h"
 
-char buf_bf[1000] = "+++[>,+.<-]";
+char buf_bf[1000];
 
 uint8_t reel[1000];
 
@@ -74,24 +74,15 @@ void brainfuck()
                 break;
             }
         i++;
-        for(int x = 0; x < CH_WIDTH; x++)
+        
+
+        //Shows code being executed at the bottom
+        for(int x = 0; x < 40 || buf_bf[x+i] == '\0'; x++)
         {
             SetForeColour(0);
-            DrawCharacter(127,x*8,700);
-            DrawCharacter(127,x*8,684);
+            DrawCharacter(127,x*8,752);
             SetForeColour(0xFFFF);
-
-        }
-        for(int x = 0; x < 40; x++)
-        {
-            char num[4];
-            SignedString(reel[x+loc-20], num, 10);
-            num[0] = ' ';
-            DrawStringz(num, x*(8*4),700);
-        }
-        for(int x = 0; x < 40; x++)
-        {
-            DrawCharacter(buf_bf[x+i-20],x*8,684);
+            DrawCharacter(buf_bf[x+i],x*8,752);
         }
         Sleep(2000000);
     }
