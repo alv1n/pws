@@ -4,10 +4,6 @@
 #include "asm.h"
 #include "print.h"
 
-// The width and height of the screen measured in chars
-#define CH_WIDTH 128
-#define CH_HEIGHT 48
-
 static int prev_x_pos[CH_HEIGHT];
 static int x_pos = 0;
 static int y_pos = 0;
