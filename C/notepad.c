@@ -39,7 +39,7 @@ void Notepad()
             }
             else if(mode == NORMAL)
             {
-                if(c == 'e')
+                if(c == 'q')
                 {
                     PrintClear();
                     return;
