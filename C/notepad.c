@@ -80,6 +80,11 @@ void InsertMode(char c)
         buf[cursor] = c;
         cursor++;
     }
+    else if(c == 127) //Backspace
+    {
+        MemoryMove(buf+cursor,buf+cursor-1,1+CharCount(buf+cursor));
+        cursor--;
+    }
     return;
 }
 
@@ -112,7 +117,8 @@ void NormalMode(char c)
         break;
 
     case 127: //Backspace
-        MemoryMove(buf+cursor-1,buf+cursor,1+CharCount(buf+cursor));
+        MemoryMove(buf+cursor-1,buf+cursor,CharCount(buf+cursor));
+        cursor--;
         break; 
 
     default:
