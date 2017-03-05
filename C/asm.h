@@ -1,3 +1,6 @@
+#ifndef ASM_H
+#define ASM_H
+
 #include "stdint.h"
 #include "graphics.h"
 
@@ -47,3 +50,4 @@ extern void SetGpio(int pin, int status);
 //timer.s
 extern void timerWait(int microseconds);
 
+#endif
