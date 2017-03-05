@@ -1,11 +1,13 @@
 #include "../include/uspi.h"
 #include "../include/uspios.h"
+#include "../include/uspienv.h"
 
 #include "stdint.h"
 #include "asm.h"
 #include "keyboard.h"
 #include "programs.h"
 #include "graphics.h"
+#include "print.h"
 
 
 void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
@@ -26,28 +28,23 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
 
     SetGraphicsAddress(frameRet);
+
+    PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
     
-    DrawStringz("Screen turned on succesfully!",0,0);
     int x = 0;
     int y = 16;
+<<<<<<< HEAD
     snake();
+=======
+    
+>>>>>>> 45ee799370e3388bb7dff4645d2500023a3c76d0
     while(1)
-    {   
-        if(new_input)
-        {
-            new_input = 0;
-            x+= 8*DrawStringz(lastPressed+counter,x,y);
-            if(x>1024)
-            {
-                x = 0;
-                y+=16;
-                if(y > 768)
-                {
-                    y = 0;
-                }
-                
-            }
-        }
+    {
+    	if (new_input)
+	{
+		new_input = 0;
+		PrintString(lastPressed + counter);
+	}
     }
 }
 
