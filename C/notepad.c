@@ -21,6 +21,9 @@ void NormalMode(char c);
 void InsertMode(char c);
 void DrawCursor(void);
 
+static char under_cursor= 0;
+
+
 void Notepad()
 {
     char c;
@@ -45,6 +48,11 @@ void Notepad()
             DrawCursor();
             PrintClear();
             PrintString(buf);
+            DrawCharacter(under_cursor,0,400);
+            char cur[4];
+            UnsignedString(cursor,cur,10);
+            DrawStringz(cur,0,416);
+
         }
     }
 }
@@ -78,13 +86,12 @@ void InsertMode(char c)
 
 void NormalMode(char c)
 {
-    static char under_cursor= 0;
     switch(c)
     {
     case 'h':
         cursor = (cursor - 1) <= 0 ? 0 : (cursor - 1);
-        //buf[cursor] = under_cursor;
-        //under_cursor = buf[cursor-1];
+        buf[cursor+1] = under_cursor;
+        under_cursor = buf[cursor];
         break;
     case 'k':
         break;
@@ -93,12 +100,11 @@ void NormalMode(char c)
         break;
 
     case 'l':
-        if(buf[cursor+1] != '\0')
+        if(buf[cursor] != '\0')
         {
             // 'elegantie'
-            //buf[cursor++] = under_cursor;
-            //under_cursor = buf[cursor];
-            cursor++;
+            buf[cursor++] = under_cursor;
+            under_cursor = buf[cursor];
         } break;
 
     case 'x': //Delete

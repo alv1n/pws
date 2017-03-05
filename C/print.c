@@ -78,6 +78,17 @@ void PrintCharacter(char ch)
         }
         DrawCharacter(127,x_pos*8,y_pos*16);
         SetForeColour(0xFFFF);
+		x_pos++;
+		if (x_pos >= CH_WIDTH) 
+		{
+			y_pos++;
+			x_pos = 0;
+	
+		}
+        if (y_pos >= CH_HEIGHT)
+        {
+            PrintClear();
+        }
     }
 
 }
