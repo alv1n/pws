@@ -1,9 +1,14 @@
+#include "stdint.h"
+
+#define addr 0x20003004
+
 void Sleep(int mcsec)
 {
-    int timer_start = *(int *)0x20003000;
-    int timer_current = *(int *)0x20003000;
-    while(timer_start + mcsec <= timer_start)
+    uint8_t timer_start = *(int *)addr;
+    uint8_t timer_current = *(int *)addr;
+    while(timer_start + mcsec <= timer_current)
     {
-        timer_current = *(int *)0x20003000;
+        timer_current = *(int *)addr;
     }
+    return;
 }

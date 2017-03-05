@@ -1,6 +1,7 @@
 #include "asm.h"
 #include "keyboard.h"
 #include "sleep.h"
+#include "scan.h"
 struct position
 {
     int x[100];
@@ -11,12 +12,13 @@ struct position
 
 void snake(void)
 {
+    PrintClear();
     int score = 0;
     char score_str[6];
 
     struct position pos;
-    pos.nom_x = Random(23) % 96;
-    pos.nom_y = Random(pos.nom_x) % 64;
+    pos.nom_x = 100;
+    pos.nom_y = 200;
     
     for(int i=0;i<100;i++)
     {
@@ -38,7 +40,7 @@ void snake(void)
         if(new_input)
         {
             new_input = 0;
-            key_pressed = (lastPressed+counter)[0];
+            key_pressed = GetChar();
             if(key_pressed != 'a' && key_pressed != 's' && key_pressed != 'd' && key_pressed != 'w')
             {
                 key_pressed = last_key;
