@@ -1,6 +1,10 @@
 #ifndef PRINT_H
 #define PRINT_H
 
+// The width and height of the screen measured in chars
+#define CH_WIDTH 128
+#define CH_HEIGHT 48
+
 /* Prints a character and automatically wraps around */
 extern void PrintCharacter(char ch);
 
