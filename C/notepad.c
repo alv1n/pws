@@ -42,6 +42,7 @@ void Notepad()
                 if(c == 'q')
                 {
                     PrintClear();
+
                     return;
                 }
                 NormalMode(c);
