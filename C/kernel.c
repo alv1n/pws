@@ -31,20 +31,6 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
     }
     SetGraphicsAddress(frameRet);
 
-    //Cmd();
-    Sleep(1000000);
-    PrintCharacter('a');
-    Sleep(1000000);
-
-    PrintCharacter('b');
-    Sleep(1000000);
-    
-    PrintCharacter('c');
-    Sleep(1000000);
-    while(1)
-    {
-        PrintCharacter('d');
-        Sleep(1000000);
-    }
+    Cmd();
 } 
 

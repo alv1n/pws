@@ -8,25 +8,18 @@
 #define CH_WIDTH 128
 #define CH_HEIGHT 48
 
-//#define buf_bf buf
+#define buf_bf buf
 
 //Exit with backspace
 char buf[CH_WIDTH * CH_HEIGHT];
 
-char buf_bf[CH_WIDTH * CH_HEIGHT];
+//char buf_bf[CH_WIDTH * CH_HEIGHT];
 
 uint8_t reel[1000];
 
 void brainfuck() 
 {
     PrintClear();
-
-    int i;
-    for(i=0; buf[i] != '\0'; i++)
-    {
-        buf_bf[i] = buf[i];
-    }
-    buf_bf[i] = 0;
 
 
     int loc = 0;
@@ -35,6 +28,7 @@ void brainfuck()
         PrintClear();
         return;
     }
+    int i = 0;
     while(buf_bf[i] != 0)
     {
         switch(buf_bf[i])

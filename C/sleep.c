@@ -7,7 +7,7 @@ void Sleep(int mcsec)
 {
     uint32_t timer_start = *(int *)addr;
     uint32_t timer_current = *(int *)addr;
-    while(timer_start + mcsec <= timer_current)
+    while(timer_start + mcsec >= timer_current)
     {
         timer_current = *(int *)addr;
     }
