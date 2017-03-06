@@ -29,7 +29,7 @@ MAP = kernel.map
 LINKER = kernel.ld
 
 #CFLAGS
-CFLAGS = -Wall -mfloat-abi=hard -fsigned-char
+CFLAGS = -Wall -Wextra -pedantic -mfloat-abi=hard -fsigned-char
 
 # The names of all object files that must be generated. Deduced from the 
 # assembly code files in source.

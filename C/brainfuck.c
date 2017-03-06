@@ -8,25 +8,34 @@
 #define CH_WIDTH 128
 #define CH_HEIGHT 48
 
-#define buf_bf buf
+//#define buf_bf buf
 
+//Exit with backspace
 char buf[CH_WIDTH * CH_HEIGHT];
 
-//char buf_bf[1000];
+char buf_bf[CH_WIDTH * CH_HEIGHT];
 
 uint8_t reel[1000];
 
 void brainfuck() 
 {
     PrintClear();
-    int i = 0;
-    int loc = 500;
+
+    int i;
+    for(i=0; buf[i] != '\0'; i++)
+    {
+        buf_bf[i] = buf[i];
+    }
+    buf_bf[i] = 0;
+
+
+    int loc = 0;
     if(new_input && GetChar() == 127) 
     {
         PrintClear();
         return;
     }
-    while(buf_bf[i] > 0)
+    while(buf_bf[i] != 0)
     {
         switch(buf_bf[i])
         {
@@ -77,6 +86,12 @@ void brainfuck()
                 {
                     new_input = 0;
                     reel[loc] = GetChar();
+                    if(reel[loc] == 127)
+                    {
+                        PrintClear();
+                        return;
+                    }
+                    
                 }
                 break;
             default:

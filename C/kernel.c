@@ -11,7 +11,6 @@
 #include "sleep.h"
 #include "programs.h"
 #include "cmd.h"
-#include "calculator.h"
 
 struct FrameBufferDescription *frameRet;
 
@@ -31,20 +30,21 @@ void kernel_main(unsigned int r0, unsigned int r1, unsigned int atags)
         SetGpio(47,0);
     }
     SetGraphicsAddress(frameRet);
-    //Enter code after this line:
-    /*PrintFormat("This is a test: %d, %x, %o, %b", -10, 16, 8, 2);
+
+    //Cmd();
+    Sleep(1000000);
+    PrintCharacter('a');
+    Sleep(1000000);
+
+    PrintCharacter('b');
+    Sleep(1000000);
+    
+    PrintCharacter('c');
+    Sleep(1000000);
     while(1)
     {
-    	if (new_input)
-	{
-		new_input = 0;
-		PrintString(lastPressed + counter);
-	}
+        PrintCharacter('d');
+        Sleep(1000000);
     }
-    */
-
-    Calculator();
-
-}
-
+} 
 
