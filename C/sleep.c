@@ -2,7 +2,6 @@
 
 #define addr 0x20003004
 
-//Not working
 void Sleep(int mcsec)
 {
     uint32_t timer_start = *(int *)addr;

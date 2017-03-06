@@ -32,11 +32,7 @@ void Cmd(void)
 		PrintCharacter('\n');
 		buf_cmd[i] = '\0';
 
-		if (!StringCompare("snake", buf_cmd))
-		{
-			snake();
-		}
-		else if (!StringCompare("notepad", buf_cmd))
+		if (!StringCompare("notepad", buf_cmd))
 		{
 			PrintClear();
 			Notepad();
@@ -56,7 +52,7 @@ void Cmd(void)
 		else if (!StringCompare("help", buf_cmd))
 		{
 			// defined in programs.h
-			PRINT_CMDS(paint, snake, notepad, brainfuck, clear, help);
+			PRINT_CMDS(paint,notepad, brainfuck, clear, help);
 		}
 		else
 		{

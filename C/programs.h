@@ -1,11 +1,8 @@
 #ifndef PROGRAMS_H
 #define PROGRAMS_H
 
-//Snake.c
 #define CH_WIDTH 128
 #define CH_HEIGHT 48
-
-extern void snake();
 
 extern void brainfuck(void);
 
