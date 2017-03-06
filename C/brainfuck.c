@@ -20,7 +20,10 @@ uint8_t reel[1000];
 void brainfuck() 
 {
     PrintClear();
-
+    for(int i = 0;i < 1000; i++)
+    {
+        reel[i] = 0;
+    }
 
     int loc = 0;
     if(new_input && GetChar() == 127) 
