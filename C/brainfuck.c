@@ -13,10 +13,10 @@
 //Exit with backspace
 char buf[CH_WIDTH * CH_HEIGHT];
 
-//char buf_bf[CH_WIDTH * CH_HEIGHT];
 
 uint8_t reel[1000];
 
+//Assumes program is terminated with q
 void brainfuck() 
 {
     PrintClear();
@@ -33,6 +33,9 @@ void brainfuck()
     {
         switch(buf_bf[i])
         {
+            case 'q':
+                PrintClear();
+                return;
             case '>':
                 loc++;
                 break;
@@ -106,6 +109,6 @@ void brainfuck()
             SetForeColour(0xFFFF);
             DrawCharacter(buf_bf[x+i],x*8,752);
         }
-        Sleep(2000000);
+        Sleep(500000);
     }
 }
